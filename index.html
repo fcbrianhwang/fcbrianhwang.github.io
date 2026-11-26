@@ -140,8 +140,10 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .nav-inner{padding:0 20px;}
   main{padding:0 20px 60px;}
   footer{padding:24px 20px;flex-direction:column;align-items:flex-start;}
-  .nav-links{gap:14px;}
-  .nav-name{font-size:11px;letter-spacing:.1em;}
+  .nav-links{gap:16px;flex-wrap:nowrap;}
+  .nav-links li:nth-child(1),.nav-links li:nth-child(3),.nav-links li:nth-child(4){display:none;}
+  .nav-name{font-size:12px;letter-spacing:.12em;}
+  .nav-inner{height:48px;}
   .nav-links a{font-size:12px;}
   .stats-row{gap:10px;}
   .stat-card{flex:1 1 100%;}
@@ -155,8 +157,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .certs-grid{grid-template-columns:1fr;}
 }
 @media(max-width:420px){
-  .nav-links{display:none;}
-  .nav-inner::after{content:"↓ Scroll to explore";font-size:11px;color:#888;font-family:"Courier New",monospace;}
+  .nav-links li:nth-child(1),.nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4){display:none;}
   #hero h1{font-size:26px;}
   .diff-title{font-size:14px;}
 }
@@ -188,7 +189,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       <h1>Intercepting financial crime at the intersection of crypto and compliance.</h1>
       <p class="hero-bio">Financial crime specialist with six years bridging traditional finance and the digital asset industry. Chainalysis-certified, FINTRAC-fluent and trusted by RCMP, OPP and FBI. Works across the full financial crime stack, from hands-on blockchain investigations and regulatory filings to building the compliance infrastructure that keeps platforms defensible at scale.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#resume">View Resume</a>
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/fcjoseph" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn btn-outline" href="mailto:brian.hwang312@gmail.com">Email Me</a>
       </div>
@@ -307,26 +308,36 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <div class="proj-card">
         <h3>AML/ATF Investigations &amp; Regulatory Filings</h3>
-        <p>End-to-end ownership of STR and LVCTR filing programs, complex case management and regulatory reporting under FINTRAC and PCMLTFA. Operated at 500+ investigations per month in a high-velocity crypto environment, translating raw transaction data and blockchain intelligence into defensible regulatory submissions, every time, on time.</p>
+        <p>End-to-end ownership of STR and LVCTR filing programs across a high-volume crypto environment, from initial transaction flag through investigation, documentation and regulatory submission. Applies a risk-based approach to case prioritization, escalation triage and typology analysis that consistently meets FINTRAC SLAs without sacrificing investigation depth. Comfortable owning the full compliance reporting function for a regulated Canadian entity.</p>
         <div class="tags"><span class="tag">STR Filings</span><span class="tag">LVCTR</span><span class="tag">FINTRAC</span><span class="tag">PCMLTFA</span><span class="tag">Typology Analysis</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Blockchain Analytics &amp; On-Chain Tracing</h3>
-        <p>Chainalysis Certified Investigator (CCI) with deep operational proficiency across Reactor and KYT. Traces wallet clusters, attributes on-chain flows to real-world actors and builds evidential packages that hold up under law enforcement and regulatory scrutiny. Supplementary experience with Elliptic and Fireblocks across both retail and institutional crypto environments, one of a small cohort of compliance professionals equally fluent in blockchain intelligence and regulatory procedure.</p>
+        <p>Chainalysis Certified Investigator (CCI) with deep operational command of Reactor and KYT, tracing wallet clusters, mapping transaction graphs and attributing on-chain flows to real-world financial crime patterns. Builds evidential packages that satisfy law enforcement evidentiary standards and regulatory scrutiny alike. Supplementary experience with Elliptic and Fireblocks across both retail and institutional crypto environments. One of a small cohort of compliance professionals equally fluent in blockchain forensics and regulatory procedure.</p>
         <div class="tags"><span class="tag">Chainalysis Reactor</span><span class="tag">Chainalysis KYT</span><span class="tag">Elliptic</span><span class="tag">Fireblocks</span><span class="tag">On-Chain Tracing</span><span class="tag">CCI Certified</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Institutional EDD &amp; B2B Onboarding</h3>
-        <p>Designed and owns the institutional EDD framework at Corpay's Cross Borders division, built from scratch. Specialist in onboarding VASPs, MSBs, DeFi protocols and crypto mining operations, with deep expertise in beneficial ownership mapping, multi-jurisdictional PEP and sanctions screening and presenting risk assessments that hold up to Compliance Committee and board-level scrutiny.</p>
+        <p>Designed and owns the institutional EDD framework at Corpay's Cross Borders division, built from scratch. Specialist in onboarding VASPs, MSBs, DeFi protocols and crypto mining operations, with deep expertise in multi-layered beneficial ownership analysis, global PEP and sanctions screening and adverse media investigation across complex holding structures. Delivers risk assessments that hold up to Compliance Committee and board-level scrutiny and that the business can actually act on.</p>
         <div class="tags"><span class="tag">VASPs</span><span class="tag">MSBs</span><span class="tag">Beneficial Ownership</span><span class="tag">PEP Screening</span><span class="tag">Adverse Media</span><span class="tag">Risk Assessment</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Fraud Detection, ATO Prevention &amp; Law Enforcement Liaison</h3>
-        <p>Built proven fraud response playbooks for crypto-native threats including account takeover, structuring, layering and social engineering, delivering a 40% ATO reduction at Voyager Digital through detection rule engineering. Extensive production order management for RCMP, OPP and FBI, packaging investigation findings into actionable law enforcement disclosures that meet evidentiary standards.</p>
+        <p>Built and deployed fraud response playbooks for the full spectrum of crypto-native threats, account takeover, structuring, layering, pig-butchering and social engineering, delivering a 40% ATO reduction at Voyager Digital through detection rule engineering. Extensive production order management experience with RCMP, OPP and FBI, packaging investigation findings into defensible disclosures that meet evidentiary standards and law enforcement timelines.</p>
         <div class="tags"><span class="tag">ATO Prevention</span><span class="tag">RCMP / OPP / FBI</span><span class="tag">Production Orders</span><span class="tag">Fraud Typologies</span><span class="tag">Sift</span></div>
+      </div>
+
+      <div class="proj-card">
+        <h3>Sanctions Compliance &amp; Regulatory Intelligence</h3>
+        <p>Monitors FINTRAC bulletins, FATF mutual evaluation updates and OFAC SDN amendments in real time, translating regulatory change into actionable compliance controls before they become enforcement findings. Experienced in multi-jurisdictional PEP and sanctions screening across OFAC, UN, EU and domestic watchlists, with the institutional onboarding depth to apply enhanced controls at the entity level. Keeps compliance programs ahead of the regulatory curve rather than reacting to it.</p>
+      </div>
+
+      <div class="proj-card">
+        <h3>Compliance Automation &amp; Cross-Functional Advisory</h3>
+        <p>Leads and supports automation initiatives across KYC, EDD and regulatory reporting workflows, integrating generative AI tools with rigorous human oversight to improve data consistency, reduce investigation cycle times and raise the operational standard for compliance at scale. Equally comfortable advising Product, Legal, Technology and Operations teams on the compliance implications of new features and market expansions, translating complex regulatory requirements into engineering-ready specifications that teams can actually ship.</p>
       </div>
 
     </div>
