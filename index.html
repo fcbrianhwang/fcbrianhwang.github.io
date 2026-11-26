@@ -7,8 +7,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --cream:#f7f2ea;--white:#ffffff;--ink:#1a1a1a;--muted:#555;
-  --navy:#1B3C6D;--navy-light:#2a5eaa;
+  --cream:#f9f3e3;--white:#ffffff;--ink:#1a1a1a;--muted:#555;
+  --navy:#1a1a1a;--navy-light:#3d3020;--warm:#b5810a;
   --border:#1a1a1a;--radius:6px;--max-w:1060px;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:16px;}
@@ -16,7 +16,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,san
 /* NAV */
 nav{background:var(--cream);border-bottom:1.5px solid var(--ink);position:sticky;top:0;z-index:100;}
 .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:52px;min-width:0;}
-.nav-name{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-family:"Courier New",Courier,monospace;white-space:nowrap;}
+.nav-name{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#1a1a1a;text-decoration:none;font-family:"Courier New",Courier,monospace;white-space:nowrap;}
 .nav-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
 .nav-links a{font-size:13px;color:var(--ink);text-decoration:none;font-weight:500;letter-spacing:.04em;transition:opacity .2s;white-space:nowrap;}
 .nav-links a:hover{opacity:.5;}
@@ -27,10 +27,10 @@ section{padding:72px 0 0;}
 
 /* HERO */
 #hero{display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:center;padding-top:72px;padding-bottom:16px;}
-.hero-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 12px;border-radius:3px;margin-bottom:20px;font-family:"Courier New",Courier,monospace;}
-.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-family:"Courier New",Courier,monospace;}
+.hero-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:3px;margin-bottom:20px;font-family:"Courier New",Courier,monospace;border:3px solid #1a1a1a;color:#1a1a1a;background:var(--cream);box-shadow:3px 3px 0 #1a1a1a;}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:16px;font-family:"Courier New",Courier,monospace;}
 #hero h1{font-size:clamp(28px,4.5vw,52px);font-weight:900;line-height:1.08;color:var(--ink);margin-bottom:22px;letter-spacing:-.02em;}
-.hero-bio{font-size:16px;color:var(--muted);max-width:580px;margin-bottom:32px;line-height:1.75;}
+.hero-bio{font-size:15px;color:var(--muted);max-width:580px;margin-bottom:32px;line-height:1.6;}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;}
 
 /* PRESS-DOWN BUTTON EFFECT */
@@ -45,10 +45,10 @@ section{padding:72px 0 0;}
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   position:relative;top:0;left:0;
 }
-.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:3px 3px 0 #0c1a30;}
+.btn-primary{background:#E07820;color:#fff;border-color:#E07820;box-shadow:3px 3px 0 #a04d0a;}
 .btn-outline{background:transparent;color:var(--ink);}
 .btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
-.btn-primary:hover{box-shadow:1px 1px 0 #0c1a30;}
+.btn-primary:hover{background:#c4621a;border-color:#c4621a;box-shadow:1px 1px 0 #1a1208;}
 .btn:active{transform:translate(3px,3px);box-shadow:none;}
 .btn-outline:hover{background:var(--ink);color:var(--cream);}
 
@@ -57,14 +57,16 @@ section{padding:72px 0 0;}
 .hero-photo-placeholder{font-size:11px;color:#999;text-align:center;padding:20px;font-family:"Courier New",Courier,monospace;letter-spacing:.05em;line-height:1.6;}
 
 /* SECTION LABEL */
-.section-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:28px;font-family:"Courier New",Courier,monospace;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1a1a1a;margin-bottom:28px;font-family:"Courier New",Courier,monospace;}
 
 /* STATS ROW */
 .stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
 .stat-card{flex:1 1 180px;background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:18px 20px;transition:border-width .08s ease,padding .08s ease,box-shadow .15s ease;}
 .stat-card:hover{border-width:3px;padding:16.5px 18.5px;box-shadow:4px 4px 0 var(--ink);}
-.stat-value{font-size:28px;font-weight:900;color:var(--navy);display:block;line-height:1;}
+.stat-value{font-size:28px;font-weight:900;color:#1a1a1a;display:block;line-height:1;}
 .stat-label{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4;}
+.diff-title { font-size: 16px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; line-height: 1.2; }
+.diff-desc { font-size: 12.5px; color: #666; line-height: 1.6; }
 
 /* EXPERIENCE GRID */
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
@@ -74,7 +76,7 @@ section{padding:72px 0 0;}
 .exp-card.half{grid-column:span 2;}
 .exp-dates{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-family:"Courier New",Courier,monospace;}
 .exp-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:5px;line-height:1.2;}
-.exp-company{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;font-family:"Courier New",Courier,monospace;}
+.exp-company{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b5810a;margin-bottom:3px;font-family:"Courier New",Courier,monospace;}
 .exp-location{font-size:12px;color:var(--muted);margin-bottom:14px;}
 .exp-desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:7px;}
 
@@ -97,28 +99,28 @@ section{padding:72px 0 0;}
 .project-card:hover .project-arrow{color:var(--ink);}
 .project-dates{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-family:"Courier New",Courier,monospace;}
 .project-title{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:6px;line-height:1.2;padding-right:28px;}
-.project-org{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:12px;font-family:"Courier New",Courier,monospace;}
+.project-org{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b5810a;margin-bottom:12px;font-family:"Courier New",Courier,monospace;}
 .project-desc{font-size:13.5px;color:var(--muted);line-height:1.75;}
 
 /* CERTIFICATIONS SECTION */
 .certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .cert-card{background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:22px 24px;display:flex;align-items:flex-start;gap:16px;text-decoration:none;color:inherit;transition:border-width .08s ease,padding .08s ease,box-shadow .15s ease;}
 .cert-card:hover{border-width:3px;padding:20.5px 22.5px;box-shadow:5px 5px 0 var(--ink);}
-.cert-icon{width:44px;height:44px;flex-shrink:0;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.cert-icon{width:44px;height:44px;flex-shrink:0;background:#1a1a1a;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .cert-icon svg{width:22px;height:22px;fill:#fff;}
 .cert-body{min-width:0;}
 .cert-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;line-height:1.3;}
-.cert-issuer{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:4px;font-family:"Courier New",Courier,monospace;}
+.cert-issuer{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b5810a;margin-bottom:4px;font-family:"Courier New",Courier,monospace;}
 .cert-meta{font-size:12px;color:var(--muted);}
-.cert-verify{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:"Courier New",Courier,monospace;}
+.cert-verify{font-size:11px;font-weight:700;color:#b5810a;text-transform:uppercase;letter-spacing:.08em;margin-top:8px;display:inline-flex;align-items:center;gap:4px;font-family:"Courier New",Courier,monospace;}
 .cert-card:hover .cert-verify{text-decoration:underline;}
 
 /* TOOLS STRIP */
-.tools-strip{background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:28px;margin-top:12px;}
+.tools-strip{background:#ede6d4;border:1.5px solid var(--ink);border-radius:var(--radius);padding:28px;margin-top:12px;}
 
 /* RESUME */
 .resume-card{background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:32px;}
-.resume-card h3{font-size:20px;font-weight:800;margin-bottom:10px;}
+.resume-card h3{font-size:20px;font-weight:800;color:#1a1a1a;margin-bottom:10px;}
 .resume-card p{font-size:14px;color:var(--muted);line-height:1.75;max-width:600px;margin-bottom:20px;}
 
 /* FOOTER */
@@ -138,6 +140,25 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .nav-inner{padding:0 20px;}
   main{padding:0 20px 60px;}
   footer{padding:24px 20px;flex-direction:column;align-items:flex-start;}
+  .nav-links{gap:14px;}
+  .nav-name{font-size:11px;letter-spacing:.1em;}
+  .nav-links a{font-size:12px;}
+  .stats-row{gap:10px;}
+  .stat-card{flex:1 1 100%;}
+  .hero-cta{flex-direction:column;}
+  .hero-cta .btn{text-align:center;justify-content:center;}
+  .proj-card{padding:18px 16px;}
+  .proj-card:hover{padding:16.5px 14.5px;}
+  .exp-card{padding:18px 16px;}
+  .exp-card:hover{padding:16.5px 14.5px;}
+  .tools-strip{padding:20px 16px;}
+  .certs-grid{grid-template-columns:1fr;}
+}
+@media(max-width:420px){
+  .nav-links{display:none;}
+  .nav-inner::after{content:"↓ Scroll to explore";font-size:11px;color:#888;font-family:"Courier New",monospace;}
+  #hero h1{font-size:26px;}
+  .diff-title{font-size:14px;}
 }
 </style>
 </head>
@@ -165,7 +186,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       <div class="hero-badge">Open to Opportunities</div>
       <p class="hero-eyebrow">Senior AML &amp; Financial Crime Investigator</p>
       <h1>Intercepting financial crime at the intersection of crypto and compliance.</h1>
-      <p class="hero-bio">Chainalysis-certified specialist with 6+ years executing financial crimes programs across regulated fintech and digital asset environments. Deep expertise in FINTRAC, PCMLTFA, STR &amp; LVCTR filings, blockchain analytics and cross-border institutional onboarding, with a track record of intercepting over $25M in fraudulent outflows.</p>
+      <p class="hero-bio">Financial crime specialist with six years bridging traditional finance and the digital asset industry. Chainalysis-certified, FINTRAC-fluent and trusted by RCMP, OPP and FBI. Works across the full financial crime stack, from hands-on blockchain investigations and regulatory filings to building the compliance infrastructure that keeps platforms defensible at scale.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#resume">View Resume</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/fcjoseph" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -177,11 +198,28 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
   <!-- STATS -->
   <div class="stats-row">
-    <div class="stat-card"><span class="stat-value">&gt;$25M</span><span class="stat-label">Fraudulent outflows intercepted</span></div>
-    <div class="stat-card"><span class="stat-value">500+</span><span class="stat-label">Complex investigations monthly</span></div>
-    <div class="stat-card"><span class="stat-value">40%</span><span class="stat-label">Reduction in ATO incidents (Voyager, 2022)</span></div>
-    <div class="stat-card"><span class="stat-value">6+</span><span class="stat-label">Years in crypto &amp; fintech compliance</span></div>
+
+  <div class="stat-card">
+    <div class="diff-title">Crypto-Native Career</div>
+    <div class="diff-desc">Six years built entirely within digital asset platforms, exchanges, brokerages and cross-border payments infrastructure.</div>
   </div>
+
+  <div class="stat-card">
+    <div class="diff-title">Blockchain-Certified</div>
+    <div class="diff-desc">Chainalysis CCI, one of a small cohort of compliance professionals certified in on-chain forensics and blockchain tracing.</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="diff-title">Law Enforcement Trusted</div>
+    <div class="diff-desc">Named production order partner for Canadian and U.S. law enforcement, packaging findings into defensible disclosures that meet evidentiary standards.</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="diff-title">Multi-Jurisdictional Reach</div>
+    <div class="diff-desc">Sanctions screening and institutional onboarding across the full spectrum of regulated entities and international risk frameworks.</div>
+  </div>
+
+</div>
 
   <!-- EXPERIENCE -->
   <section id="experience">
@@ -193,9 +231,10 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="exp-title">Senior Crypto Compliance Analyst</div>
         <div class="exp-company">Corpay, Cross Borders Division</div>
         <div class="exp-location">Toronto, ON</div>
-        <p class="exp-desc">Established and leads the digital asset compliance function for the Cross Borders division's expansion into virtual currency payment corridors, designing the institutional EDD framework from the ground up.</p>
-        <p class="exp-desc">Leads end-to-end AML/KYC due diligence and institutional onboarding for high-risk B2B clients including VASPs, MSBs, fintechs, DeFi protocols and cryptocurrency mining operations.</p>
-        <p class="exp-desc">Executes deep-dive beneficial ownership mapping on layered holding structures, trusts and SPVs, performing detailed PEP, sanctions and adverse media screening across global jurisdictions. Acts as the digital asset subject matter expert advising Sales, Legal, Treasury and Operations on emerging financial crime typologies.</p>
+        <p class="exp-desc">Spearheaded Corpay's digital asset compliance capability from the ground up, establishing the institutional EDD framework, onboarding policies and risk governance infrastructure that underpin the Cross Borders division's expansion into virtual currency payment corridors.</p>
+        <p class="exp-desc">Owns end-to-end AML/KYC due diligence and institutional onboarding for the division's highest-risk B2B client segments, including VASPs, MSBs, DeFi protocols, fintechs and cryptocurrency mining operations.</p>
+        <p class="exp-desc">Executes deep-dive beneficial ownership analysis on complex multi-layered holding structures, trusts and SPVs, applying global PEP, sanctions and adverse media screening across the full spectrum of international jurisdictions.</p>
+        <p class="exp-desc">Delivers structured risk assessments directly to senior management and Compliance Committees, translating complex financial crime exposure into clear, actionable guidance and serves as the organization's authoritative voice on digital asset typologies, regulatory change and emerging financial crime threats.</p>
         <div class="tags"><span class="tag">Institutional EDD</span><span class="tag">B2B Onboarding</span><span class="tag">Beneficial Ownership</span><span class="tag">VASPs/MSBs</span><span class="tag">Sanctions Screening</span><span class="tag">DeFi</span><span class="tag">Digital Assets</span></div>
       </div>
 
@@ -204,9 +243,12 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="exp-title">Senior Fraud &amp; AML Analyst</div>
         <div class="exp-company">Newton, Canadian Cryptocurrency Platform</div>
         <div class="exp-location">Toronto, ON</div>
-        <p class="exp-desc">Owned and executed AML/ATF compliance reporting and investigations for entities flagged for potential money laundering, ensuring strict adherence to FINTRAC guidelines and PCMLTFA obligations.</p>
-        <p class="exp-desc">Prepared, drafted and submitted STR and LVCTR regulatory filings, consistently meeting defined SLAs and FINTRAC timelines. Partnered with the FIU AML department to manage complex compliance cases, providing guidance on EDD reviews, transaction monitoring and high-risk escalations.</p>
-        <p class="exp-desc">Executed 500+ monthly investigations into high-risk entities applying Chainalysis Reactor and KYT. Integrated generative AI tools with human oversight to streamline investigative workflows and improve reporting accuracy.</p>
+        <p class="exp-desc">Served as one of Newton's most senior AML practitioners, owning the end-to-end AML/ATF compliance function for one of Canada's largest retail cryptocurrency platforms, ensuring every investigation, filing and escalation met the full standard of FINTRAC guidelines and PCMLTFA obligations.</p>
+        <p class="exp-desc">Authored and submitted STR and LVCTR regulatory filings across a high-volume monthly caseload, managing every stage from initial transaction flag through investigation, documentation and final submission, consistently meeting FINTRAC timelines without exception.</p>
+        <p class="exp-desc">Served as the primary subject matter expert for Newton's FIU AML department on complex, high-risk cases, providing authoritative guidance on EDD methodology, structuring indicators, transaction monitoring escalation and cross-border layering typologies.</p>
+        <p class="exp-desc">Coordinated precise, defensible production order responses for RCMP, OPP, FBI and global fiat partners under time-sensitive law enforcement timelines, managing 15–20 weekly orders at peak operational tempo.</p>
+        <p class="exp-desc">Integrated generative AI tools into the investigative workflow with rigorous human oversight, improving documentation consistency, accelerating case cycle times and raising the operational standard for investigation quality across the compliance team.</p>
+        <p class="exp-desc">Executed 500+ monthly investigations into high-risk entities using Chainalysis Reactor and KYT, tracing wallet clusters, mapping transaction flows and attributing on-chain activity to real-world money laundering and fraud patterns.</p>
         <div class="tags"><span class="tag">AML/ATF Investigations</span><span class="tag">STR &amp; LVCTR Filings</span><span class="tag">FINTRAC</span><span class="tag">Chainalysis Reactor/KYT</span><span class="tag">EDD</span><span class="tag">LE RFIs</span><span class="tag">Generative AI</span></div>
       </div>
 
@@ -215,7 +257,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="exp-title">Client Success Specialist</div>
         <div class="exp-company">Wealthsimple, FINTRAC-Regulated Fintech</div>
         <div class="exp-location">Toronto, ON</div>
-        <p class="exp-desc">Conducted complex EDD on high-net-worth entities and high-risk accounts within a CIRO-regulated environment. Led joint investigations into suspected structuring and layering activities, producing case files that directly informed STR filing decisions.</p>
+        <p class="exp-desc">Conducted complex EDD on high-net-worth individuals and high-risk accounts within a CIRO-regulated investment environment. Led joint investigations into suspected structuring and layering activities, producing detailed case files that directly informed STR filing decisions and regulatory escalations.</p>
         <div class="tags"><span class="tag">EDD</span><span class="tag">Structuring &amp; Layering</span><span class="tag">CIRO</span><span class="tag">STR Filing</span></div>
       </div>
 
@@ -224,8 +266,8 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="exp-title">Customer Experience Manager, Fraud &amp; Risk</div>
         <div class="exp-company">Voyager Digital, Crypto Brokerage</div>
         <div class="exp-location">New York, NY</div>
-        <p class="exp-desc">Governed the end-to-end KYC/AML verification pipeline for new account onboarding, applying EDD to PEPs, high-velocity traders and OFAC/FATF-listed applicants.</p>
-        <p class="exp-desc">Drove a 40% reduction in account-takeover incidents in 2022 by co-developing enhanced detection rules in Sift with Compliance and Product teams.</p>
+        <p class="exp-desc">Owned the end-to-end KYC/AML verification pipeline for new account onboarding across a rapidly scaling U.S.-listed crypto brokerage, applying enhanced due diligence protocols to PEPs, high-velocity traders and applicants from OFAC- and FATF-listed jurisdictions.</p>
+        <p class="exp-desc">Drove a 40% year-over-year reduction in account-takeover incidents by co-engineering enhanced detection logic in Sift alongside Compliance and Product teams, a measurable, lasting improvement to platform security at scale.</p>
         <div class="tags"><span class="tag">KYC/AML</span><span class="tag">PEP Screening</span><span class="tag">OFAC</span><span class="tag">Sift</span><span class="tag">ATO Prevention</span></div>
       </div>
 
@@ -242,7 +284,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="project-dates">May 2025, Present</div>
         <div class="project-title">Project ATLAS</div>
         <div class="project-org">Ontario Provincial Police (OPP), CEFT</div>
-        <p class="project-desc">OPP Cyber-Enabled Fraud Team initiative combating global cryptocurrency investment fraud. Focused on disrupting organized fraud, supporting victims in recovering stolen funds and educating the public on crypto investment scams. Working alongside anti-fraud and international law enforcement partners to make digital currency markets safer for investors.</p>
+        <p class="project-desc">Contributor to the Ontario Provincial Police's Cyber-Enabled Fraud Team initiative, one of Canada's most prominent cryptocurrency fraud enforcement programs. Focused on disrupting organized crypto fraud networks, supporting victim fund recovery and driving intelligence-led cross-border investigations. Part of the same enforcement ecosystem that evolved into Operation Niagara in 2026, recognized internationally as a model for crypto fraud disruption.</p>
         <div class="tags" style="margin-top:14px;"><span class="tag">Crypto Fraud</span><span class="tag">Fraud Prevention</span><span class="tag">Law Enforcement</span><span class="tag">Victim Recovery</span></div>
       </a>
 
@@ -251,7 +293,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <div class="project-dates">Jan 2026, Present</div>
         <div class="project-title">Project SPEAR</div>
         <div class="project-org">Ontario Securities Commission (OSC)</div>
-        <p class="project-desc">Internal OSC enforcement and intelligence initiative focused on proactively identifying and disrupting investment fraud and capital market misconduct. Involves proactive market surveillance, intelligence-led investigations and cross-agency collaboration with FINTRAC, CIRO, Canadian Securities Administrators and international regulators. Leverages AI-assisted intelligence, trading data analysis and social media probing to intervene before fraudulent schemes cause widespread investor harm.</p>
+        <p class="project-desc">Active contributor to the Ontario Securities Commission's internal enforcement and intelligence initiative targeting investment fraud and capital market misconduct. Leverages AI-assisted intelligence, trading data analysis, social media monitoring and digital evidence techniques to identify fraudulent schemes before they scale, operating across a cross-agency network spanning FINTRAC, CIRO, CSA members and international regulators.</p>
         <div class="tags" style="margin-top:14px;"><span class="tag">Securities Fraud</span><span class="tag">Market Surveillance</span><span class="tag">Intelligence-Led</span><span class="tag">AI-Assisted</span></div>
       </a>
 
@@ -265,25 +307,25 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <div class="proj-card">
         <h3>AML/ATF Investigations &amp; Regulatory Filings</h3>
-        <p>End-to-end case management including STR and LVCTR filings, typology analysis and regulatory reporting under FINTRAC and PCMLTFA. Consistent track record of meeting SLAs on 500+ monthly high-volume complex investigations at a leading Canadian crypto exchange.</p>
+        <p>End-to-end ownership of STR and LVCTR filing programs, complex case management and regulatory reporting under FINTRAC and PCMLTFA. Operated at 500+ investigations per month in a high-velocity crypto environment, translating raw transaction data and blockchain intelligence into defensible regulatory submissions, every time, on time.</p>
         <div class="tags"><span class="tag">STR Filings</span><span class="tag">LVCTR</span><span class="tag">FINTRAC</span><span class="tag">PCMLTFA</span><span class="tag">Typology Analysis</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Blockchain Analytics &amp; On-Chain Tracing</h3>
-        <p>Chainalysis Certified Investigator (CCI) with deep proficiency in Reactor and KYT for tracing on-chain activity, identifying wallet clusters, attributing transaction flows and building cases for law enforcement referral. Supplementary experience with Elliptic and Fireblocks across both retail and institutional crypto environments.</p>
+        <p>Chainalysis Certified Investigator (CCI) with deep operational proficiency across Reactor and KYT. Traces wallet clusters, attributes on-chain flows to real-world actors and builds evidential packages that hold up under law enforcement and regulatory scrutiny. Supplementary experience with Elliptic and Fireblocks across both retail and institutional crypto environments, one of a small cohort of compliance professionals equally fluent in blockchain intelligence and regulatory procedure.</p>
         <div class="tags"><span class="tag">Chainalysis Reactor</span><span class="tag">Chainalysis KYT</span><span class="tag">Elliptic</span><span class="tag">Fireblocks</span><span class="tag">On-Chain Tracing</span><span class="tag">CCI Certified</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Institutional EDD &amp; B2B Onboarding</h3>
-        <p>Specialist in institutional onboarding for VASPs, MSBs, DeFi protocols and crypto mining operations. Deep experience in beneficial ownership mapping on complex holding structures, multi-jurisdictional PEP and sanctions screening and presenting risk assessments to Compliance Committees and senior management.</p>
+        <p>Designed and owns the institutional EDD framework at Corpay's Cross Borders division, built from scratch. Specialist in onboarding VASPs, MSBs, DeFi protocols and crypto mining operations, with deep expertise in beneficial ownership mapping, multi-jurisdictional PEP and sanctions screening and presenting risk assessments that hold up to Compliance Committee and board-level scrutiny.</p>
         <div class="tags"><span class="tag">VASPs</span><span class="tag">MSBs</span><span class="tag">Beneficial Ownership</span><span class="tag">PEP Screening</span><span class="tag">Adverse Media</span><span class="tag">Risk Assessment</span></div>
       </div>
 
       <div class="proj-card">
         <h3>Fraud Detection, ATO Prevention &amp; Law Enforcement Liaison</h3>
-        <p>Proven response to crypto-native fraud, account takeover, structuring, layering and social engineering typologies, delivering a 40% ATO reduction at Voyager. Extensive production order management for RCMP, OPP and FBI, packaging investigation findings into actionable law enforcement disclosures and RFI responses for global fiat partners.</p>
+        <p>Built proven fraud response playbooks for crypto-native threats including account takeover, structuring, layering and social engineering, delivering a 40% ATO reduction at Voyager Digital through detection rule engineering. Extensive production order management for RCMP, OPP and FBI, packaging investigation findings into actionable law enforcement disclosures that meet evidentiary standards.</p>
         <div class="tags"><span class="tag">ATO Prevention</span><span class="tag">RCMP / OPP / FBI</span><span class="tag">Production Orders</span><span class="tag">Fraud Typologies</span><span class="tag">Sift</span></div>
       </div>
 
@@ -361,7 +403,6 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
     <p class="section-label">Resume</p>
     <div class="resume-card">
       <h3>Download My Resume</h3>
-      <p>Full resume covers experience across Corpay, Newton, Wealthsimple and Voyager Digital, along with education (BA Economics, University of Guelph) and certifications: Chainalysis Certified Compliance Analyst (CCCA), Reactor, KYT, Crypto Fundamentals, plus CFE &amp; CAMS in progress.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="resume.pdf" id="resume-dl" target="_blank" rel="noopener">View Resume</a>
         <a class="btn btn-outline" href="resume.pdf" download="Joseph_Brian_Hwang_Resume.pdf">Download PDF ↓</a>
