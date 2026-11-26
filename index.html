@@ -173,6 +173,10 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 .article-body.open { display:block; }
 .article-body p { font-size:14px; color:#555; line-height:1.75; margin-bottom:12px; }
 .article-body p:last-child { margin-bottom:0; }
+.proj-body { display: none; margin-top: 14px; }
+.proj-body.open { display: block; }
+.proj-body p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 12px; }
+.proj-body p:last-of-type { margin-bottom: 0; }
 
 
 
@@ -492,7 +496,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <a class="cert-card" href="https://training.chainalysis-gov.com/certificates/401644920" target="_blank" rel="noopener">
         <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2zm0 2.18L19 8v4c0 4.52-3.08 8.74-7 9.93C8.08 20.74 5 16.52 5 12V8l7-3.82zM11 7v6l5.25 3.15.75-1.23-4.5-2.67V7H11z"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-name">Chainalysis Certified Compliance Analyst (CCCA)</div>
@@ -504,7 +508,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <a class="cert-card" href="https://training.chainalysis-gov.com/certificates/400823363" target="_blank" rel="noopener">
         <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2zm0 2.18L19 8v4c0 4.52-3.08 8.74-7 9.93C8.08 20.74 5 16.52 5 12V8l7-3.82zM11 7v6l5.25 3.15.75-1.23-4.5-2.67V7H11z"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-name">Chainalysis Reactor Certification</div>
@@ -516,7 +520,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <a class="cert-card" href="https://training.chainalysis-gov.com/certificates/400823050" target="_blank" rel="noopener">
         <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2zm0 2.18L19 8v4c0 4.52-3.08 8.74-7 9.93C8.08 20.74 5 16.52 5 12V8l7-3.82zM11 7v6l5.25 3.15.75-1.23-4.5-2.67V7H11z"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-name">Chainalysis KYT Certification</div>
@@ -528,7 +532,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 
       <a class="cert-card" href="https://training.chainalysis-gov.com/certificates/400823482" target="_blank" rel="noopener">
         <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2zm0 2.18L19 8v4c0 4.52-3.08 8.74-7 9.93C8.08 20.74 5 16.52 5 12V8l7-3.82zM11 7v6l5.25 3.15.75-1.23-4.5-2.67V7H11z"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-name">Chainalysis Cryptocurrency Fundamentals Certification</div>
@@ -567,12 +571,43 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 </footer>
 
 <script>
-// ── Read toggle ──
+// ── Read toggle (Perspectives articles) ──
 document.querySelectorAll('.read-toggle').forEach(function(btn){
   btn.addEventListener('click',function(){
     var body=btn.closest('.article-card').querySelector('.article-body');
     body.classList.toggle('open');
     btn.textContent=body.classList.contains('open')?'Close ↑':'Read →';
+  });
+});
+
+// ── Expertise card toggles ──
+document.querySelectorAll('#expertise .proj-card').forEach(function(card){
+  var h3=card.querySelector('h3');
+  if(!h3) return;
+
+  // wrap everything after h3 in a collapsible div
+  var projBody=document.createElement('div');
+  projBody.className='proj-body';
+  var toMove=[];
+  var el=h3.nextElementSibling;
+  while(el){ toMove.push(el); el=el.nextElementSibling; }
+  toMove.forEach(function(n){ projBody.appendChild(n); });
+  card.appendChild(projBody);
+
+  // create header row with h3 + toggle button
+  var row=document.createElement('div');
+  row.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:16px;';
+  card.insertBefore(row,h3);
+  row.appendChild(h3);
+  var btn=document.createElement('button');
+  btn.className='btn btn-outline';
+  btn.style.cssText='flex-shrink:0;padding:7px 16px;font-size:11px;';
+  btn.textContent='More →';
+  row.appendChild(btn);
+
+  btn.addEventListener('click',function(){
+    projBody.classList.toggle('open');
+    btn.textContent=projBody.classList.contains('open')?'Less ↑':'More →';
   });
 });
 
