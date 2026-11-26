@@ -173,8 +173,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 .article-body p { font-size:14px; color:#555; line-height:1.75; margin-bottom:12px; }
 .article-body p:last-child { margin-bottom:0; }
 
-.scroll-fade { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
-.scroll-fade.in-view { opacity: 1; transform: translateY(0); }
+
 
 </style>
 </head>
@@ -576,28 +575,13 @@ document.querySelectorAll('.read-toggle').forEach(function(btn){
   });
 });
 
-// ── 1. Page fade-in on load ──
+// ── Page fade-in on load ──
 document.documentElement.style.opacity='0';
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
     document.documentElement.style.transition='opacity 0.55s ease';
     document.documentElement.style.opacity='1';
   },40);
-});
-
-// ── 2. Scroll-triggered fade-ins ──
-var fadeTargets=document.querySelectorAll('.exp-card,.proj-card,.article-card,.stat-card,.cert-card,.project-card,.resume-card,.tools-strip,.section-label');
-var io=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}
-  });
-},{threshold:0.07});
-fadeTargets.forEach(function(el){el.classList.add('scroll-fade');io.observe(el);});
-
-document.querySelectorAll('.exp-grid,.projects-grid,.certs-grid,.stats-row').forEach(function(grid){
-  grid.querySelectorAll('.scroll-fade').forEach(function(card,idx){
-    card.style.transitionDelay=(idx*0.09)+'s';
-  });
 });
 </script>
 
