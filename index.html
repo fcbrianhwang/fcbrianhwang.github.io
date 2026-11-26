@@ -157,9 +157,9 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .exp-card:hover{padding:16.5px 14.5px;}
   .tools-strip{padding:20px 16px;}
   .certs-grid{grid-template-columns:1fr;}
-  #hero { display: flex; flex-direction: column; }
-  #hero img[src="photo.jpg"] { order: -1; align-self: center; justify-self: center; width: 160px; height: 160px; margin-bottom: 16px; }
-  .hero-left { order: 0; }
+  #hero { display: block; position: relative; padding-right: 105px; }
+  #hero img[src="photo.jpg"] { position: absolute; top: 0; right: 0; width: 88px; height: 88px; order: 0; align-self: auto; justify-self: auto; margin-bottom: 0; }
+  .hero-left { order: 0; padding-right: 0; }
 }
 @media(max-width:420px){
   .nav-links li:nth-child(1),.nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4){display:none;}
