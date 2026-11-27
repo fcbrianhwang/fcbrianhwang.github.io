@@ -86,6 +86,10 @@ section{padding:72px 0 0;}
 
 /* EXPERTISE (project-style) CARDS */
 .proj-list{display:flex;flex-direction:column;gap:12px;}
+#perspectives-carousel .article-card { display:none; }
+#perspectives-carousel .article-card.carousel-active { display:block; animation:carouselSlide .3s ease; }
+@keyframes carouselSlide { from{opacity:0;transform:translateX(14px)} to{opacity:1;transform:translateX(0)} }
+.carousel-nav { display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
 .proj-card{background:var(--white);border:1.5px solid var(--ink);border-radius:var(--radius);padding:26px 28px;position:relative;transition:border-width .08s ease,padding .08s ease,box-shadow .15s ease;cursor:default;}
 .proj-card:hover{border-width:3px;padding:24.5px 26.5px;box-shadow:5px 5px 0 var(--ink);}
 .proj-card h3{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:10px;}
@@ -123,6 +127,10 @@ section{padding:72px 0 0;}
 .resume-card h3{font-size:20px;font-weight:800;color:#1a1a1a;margin-bottom:10px;}
 .resume-card p{font-size:14px;color:var(--muted);line-height:1.75;max-width:600px;margin-bottom:20px;}
 
+/* CONNECT & RESUME */
+.cr-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.cr-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#b5810a; font-family:"Courier New",monospace; margin-bottom:8px; }
+
 /* FOOTER */
 footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);font-family:"Courier New",Courier,monospace;letter-spacing:.04em;}
 .footer-left{font-weight:700;color:var(--ink);}
@@ -157,6 +165,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .exp-card:hover{padding:16.5px 14.5px;}
   .tools-strip{padding:20px 16px;}
   .certs-grid{grid-template-columns:1fr;}
+  .cr-grid { grid-template-columns:1fr; }
   #hero { display: block; position: relative; }
   #hero img[src="photo.jpg"] { display: none; }
   #hero img { display: none !important; }
@@ -168,21 +177,100 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   .diff-title{font-size:14px;}
 }
 
+#scroll-progress { transition:width .08s linear; }
+
 /* ARTICLE COLLAPSIBLE */
 .article-body { display:none; margin-top:18px; }
 .article-body.open { display:block; }
 .article-body p { font-size:14px; color:#555; line-height:1.75; margin-bottom:12px; }
 .article-body p:last-child { margin-bottom:0; }
+.article-sources { margin-top:16px; padding-top:12px; border-top:1px solid #e2e2e2; display:flex; flex-wrap:wrap; gap:10px; }
+.article-sources a { font-size:11px; font-weight:700; color:#b5810a; text-decoration:none; font-family:"Courier New",monospace; letter-spacing:.05em; text-transform:uppercase; }
+.article-sources a:hover { text-decoration:underline; }
 .proj-body { display: none; margin-top: 14px; }
 .proj-body.open { display: block; }
 .proj-body p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 12px; }
 .proj-body p:last-of-type { margin-bottom: 0; }
 
+/* PERSPECTIVES LAYOUT */
+.perspectives-layout { display:flex; gap:20px; align-items:flex-start; }
+#perspectives-sidebar { width:210px; flex-shrink:0; display:flex; flex-direction:column; gap:6px; max-height:72vh; overflow-y:auto; scrollbar-width:thin; scrollbar-color:#e2e2e2 transparent; }
+.sidebar-item { padding:10px 12px; border:1.5px solid #e2e2e2; border-radius:6px; cursor:pointer; transition:border-color .15s,background .15s; }
+.sidebar-item:hover { border-color:#b5810a; }
+.sidebar-item.sidebar-active { border-color:#1a1a1a; background:#f0e8d8; }
+.sidebar-date { font-size:10px; font-family:"Courier New",monospace; color:#b5810a; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; }
+.sidebar-title { font-size:11.5px; font-weight:700; color:#1a1a1a; line-height:1.45; }
+.perspectives-main { flex:1; min-width:0; }
+@media(max-width:760px){ .perspectives-layout{ flex-direction:column; } #perspectives-sidebar{ display:none; } }
+#perspectives-carousel .read-toggle { display:none; }
+
+/* CAREER TIMELINE */
+.career-timeline { margin-bottom:36px; overflow-x:auto; }
+.tl-track { display:flex; align-items:flex-start; min-width:480px; }
+.tl-node { display:flex; flex-direction:column; align-items:center; flex:1; position:relative; }
+.tl-dot { width:14px; height:14px; border-radius:50%; background:#1a1a1a; border:3px solid #f9f3e3; flex-shrink:0; position:relative; z-index:1; }
+.tl-current .tl-dot { background:#E07820; border-color:#f9f3e3; animation:tlPulse 2s ease infinite; }
+@keyframes tlPulse { 0%,100%{box-shadow:0 0 0 0 rgba(224,120,32,.4)} 50%{box-shadow:0 0 0 8px rgba(224,120,32,0)} }
+.tl-connector { flex:1; height:2px; background:#1a1a1a; margin-top:7px; opacity:.25; }
+.tl-label { text-align:center; padding-top:10px; }
+.tl-company { font-size:11px; font-weight:800; color:#1a1a1a; font-family:"Courier New",monospace; letter-spacing:.04em; }
+.tl-role { font-size:10.5px; color:#666; margin-top:2px; }
+.tl-dates { font-size:10px; color:#b5810a; font-weight:700; font-family:"Courier New",monospace; margin-top:3px; }
 
 
+/* DARK MODE */
+body.dark { background:#111; color:#ede8df; }
+body.dark nav { background:#1a1a1a; border-color:#333; }
+body.dark .nav-name { color:#ede8df; }
+body.dark .nav-links a { color:#ede8df; }
+body.dark #dark-toggle { color:#ede8df; }
+body.dark #hero h1 { color:#ede8df; }
+body.dark .hero-bio { color:#aaa; }
+body.dark .hero-eyebrow { color:#aaa; }
+body.dark .exp-card,body.dark .proj-card,body.dark .stat-card,body.dark .cert-card,body.dark .project-card,body.dark .resume-card,body.dark .article-card,body.dark .tools-strip,body.dark .sidebar-item { background:#1f1f1f!important; border-color:#3a3a3a; }
+body.dark .exp-card:hover,body.dark .proj-card:hover,body.dark .stat-card:hover,body.dark .cert-card:hover,body.dark .project-card:hover { box-shadow:4px 4px 0 #444!important; }
+body.dark .exp-title,body.dark h3 { color:#ede8df!important; }
+body.dark .exp-desc,body.dark .diff-desc,body.dark p { color:#999; }
+body.dark .exp-company,body.dark .tl-company { color:#ccc!important; }
+body.dark .exp-dates,body.dark .exp-location,body.dark .tl-role,body.dark .tl-dates { color:#888!important; }
+body.dark .section-label { color:#ede8df; }
+body.dark .tag { border-color:#444; color:#ccc; background:transparent; }
+body.dark .btn-outline { color:#ede8df; border-color:#ede8df; }
+body.dark .btn-outline:hover { background:#ede8df; color:#111; }
+body.dark .sidebar-item.sidebar-active { background:#2a2a2a!important; border-color:#ccc; }
+body.dark .sidebar-title { color:#ede8df; }
+body.dark .sidebar-date { color:#c9a24a; }
+body.dark footer { border-color:#333; color:#888; }
+body.dark .footer-left { color:#ede8df; }
+body.dark .footer-links a { color:#ede8df; }
+body.dark .tl-connector { background:#ede8df; }
+body.dark .tl-dot { border-color:#111; }
+body.dark .article-sources a { color:#c9a24a; }
+body.dark .carousel-counter { color:#666; }
+body.dark .cert-name { color:#ede8df; }
+body.dark .hero-badge { background:#D9B84A!important; }
+body.dark .diff-title { color:#ede8df; }
+body.dark #perspectives-sidebar { scrollbar-color:#3a3a3a transparent; }
+body.dark .cr-grid .resume-card:first-child { background:#0a0a0a!important; border-color:#222!important; }
+
+#dark-toggle { position:fixed; bottom:28px; right:28px; width:48px; height:48px; border-radius:50%; background:#1a1a1a; color:#f9f3e3; border:2px solid #333; cursor:pointer; font-size:19px; z-index:500; box-shadow:0 3px 12px rgba(0,0,0,.25); transition:transform .15s,background .2s; display:flex; align-items:center; justify-content:center; }
+#dark-toggle:hover { transform:scale(1.12); }
+body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
+
+/* 5. Nav animated underline */
+.nav-links a { position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:1.5px; background:#b5810a; transition:width .25s ease; }
+.nav-links a:hover { opacity:1; }
+.nav-links a:hover::after { width:100%; }
+
+
+/* Hero content above particles */
+#hero > img { position:relative; z-index:1; }
+#hero > .hero-left { position:relative; z-index:1; }
 </style>
 </head>
 <body>
+<div id="scroll-progress" style="position:fixed;top:0;left:0;height:3px;background:#E07820;width:0%;z-index:999;pointer-events:none;"></div>
 
 <nav>
   <div class="nav-inner">
@@ -193,7 +281,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       <li><a href="#perspectives">Perspectives</a></li>
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#resume">Resume</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a href="mailto:brian.hwang312@gmail.com">Contact</a></li>
     </ul>
   </div>
@@ -245,6 +333,47 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   <!-- EXPERIENCE -->
   <section id="experience">
     <p class="section-label">Experience</p>
+
+    <div class="career-timeline">
+  <div class="tl-track">
+    <div class="tl-node">
+      <div class="tl-dot"></div>
+      <div class="tl-label">
+        <div class="tl-company">Voyager Digital</div>
+        <div class="tl-role">Fraud &amp; Risk</div>
+        <div class="tl-dates">2021, 2023</div>
+      </div>
+    </div>
+    <div class="tl-connector"></div>
+    <div class="tl-node">
+      <div class="tl-dot"></div>
+      <div class="tl-label">
+        <div class="tl-company">Wealthsimple</div>
+        <div class="tl-role">AML &amp; Compliance</div>
+        <div class="tl-dates">2023, 2024</div>
+      </div>
+    </div>
+    <div class="tl-connector"></div>
+    <div class="tl-node">
+      <div class="tl-dot"></div>
+      <div class="tl-label">
+        <div class="tl-company">Newton</div>
+        <div class="tl-role">Fraud &amp; AML</div>
+        <div class="tl-dates">2024, 2026</div>
+      </div>
+    </div>
+    <div class="tl-connector"></div>
+    <div class="tl-node tl-current">
+      <div class="tl-dot"></div>
+      <div class="tl-label">
+        <div class="tl-company">Corpay</div>
+        <div class="tl-role">Crypto Compliance</div>
+        <div class="tl-dates">2026, Present</div>
+      </div>
+    </div>
+  </div>
+</div>
+
     <div class="exp-grid">
 
       <div class="exp-card full">
@@ -324,13 +453,40 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   <!-- PERSPECTIVES -->
   <section id="perspectives">
   <p class="section-label">Perspectives</p>
-  <div class="proj-list">
+  <div id="perspectives-carousel">
+
+    <div class="proj-card article-card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Nov 5, 2026</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
+      </div>
+      <h3 style="font-size:18px;">The Binance hack: same playbook, four times the scale.</h3>
+    </div>
+    <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
+  </div>
+  <div class="article-body">
+    <p>On October 29, 2026, Binance lost approximately $6.36 billion in virtual assets in roughly twenty minutes. Funds moved across ten blockchains simultaneously. The FBI attributed it to North Korea's TraderTraitor group within two days. It is the largest cryptocurrency hack in history.</p>
+    <p>Eight months earlier, the same group stole $1.5 billion from Bybit. The Binance attack was four times larger. TraderTraitor doesn't repeat playbooks that fail. They repeat playbooks that work.</p>
+    <p>The methodology is consistent: compromise hot wallet signing infrastructure, move funds simultaneously across multiple chains to outpace freeze responses, convert immediately to assets that are harder to block. TRM Labs confirmed the attack compromised Binance's multi-chain signing infrastructure. The speed, $6.36 billion in twenty minutes, wasn't an accident. It was designed specifically to outrun the coordination required to freeze funds across ten blockchains at once.</p>
+    <p>The coordinated freeze response was genuinely impressive. Stablecoin issuers and exchanges acting together managed to freeze approximately $3 billion of the stolen assets. That's faster and more effective than anything we've seen in a comparable incident. But $3 billion frozen means $3.3 billion that wasn't. On ten chains. In twenty minutes.</p>
+    <p>Binance's own disclosure noted that their security team had detected and prevented 57 suspected North Korean cyber intrusion attempts during 2026. The 58th got through. That's not a failure of effort. It's a structural problem: compliance programs and security architectures that are designed for criminal behaviour patterns, not state-sponsored adversaries operating with nation-level patience and precision.</p>
+    <p>The compliance industry needs a different conversation. Not about whether AML programs are FINTRAC or BSA compliant, most are. But about whether the threat intelligence layer, the freeze coordination infrastructure and the multi-chain monitoring architecture are built for what financial crime from nation-states actually looks like. Two attacks of this scale in one year should settle that question.</p>
+    <div class="article-sources">
+      <a href="https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack" target="_blank" rel="noopener">FBI Alert ↗</a>
+      <a href="https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history" target="_blank" rel="noopener">TRM Labs Report ↗</a>
+      <a href="https://www.cnbc.com/2026/10/29/circle-tether-freeze-funds-impacted-by-potential-binance-security-issue.html" target="_blank" rel="noopener">CNBC Coverage ↗</a>
+    </div>
+  </div>
+</div>
 
     <div class="proj-card article-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Nov 20, 2026</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Jun 24, 2025</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
           </div>
@@ -351,7 +507,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Nov 18, 2026</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Oct 9, 2025</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
           </div>
@@ -371,10 +527,33 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
     </div>
 
     <div class="proj-card article-card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Mar 15, 2025</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
+      </div>
+      <h3 style="font-size:18px;">The Bybit hack wasn't just a security breach. It was a compliance problem.</h3>
+    </div>
+    <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
+  </div>
+  <div class="article-body">
+    <p>The morning of February 21, 2025, Bybit lost $1.5 billion in virtual assets in a single attack. Five days later, the FBI formally attributed it to North Korea's TraderTraitor group, the same state-sponsored threat actor behind years of targeted crypto theft. The largest single exchange hack on record. Within hours the funds were already moving, converted to Bitcoin, dispersed across thousands of wallets on multiple blockchains simultaneously.</p>
+    <p>Most of the coverage treated it as a cybersecurity story. A compromised signing key, a cold wallet breach, a sophisticated attacker. All accurate. But from where I sit, it was equally a compliance story and that part didn't get nearly enough attention.</p>
+    <p>The blockchain tracing response was genuinely impressive. Within days, analytics firms had mapped the wallet clusters, the FBI had published specific Ethereum addresses and exchanges globally were receiving freeze requests. The on-chain intelligence was there, nearly in real time.</p>
+    <p>The gap was everything that came before the theft. Compliance programs at exchanges aren't built for nation-state adversaries. STR filing frameworks, transaction monitoring rules, KYC workflows, these are calibrated around criminal behaviour patterns. Not geopolitical threat actors who probe systems for months, wait, then execute with military precision. TraderTraitor doesn't trigger velocity alerts. They don't structure transactions. They hit once, catastrophically, then launder with the same operational discipline that went into the breach itself.</p>
+    <p>What Bybit made clear is that crypto exchanges need a threat intelligence layer sitting alongside traditional AML infrastructure. Blockchain analytics firms can deliver this in near real time, but only if compliance teams are consuming that intelligence proactively rather than reactively. By the time a SAR gets filed on North Korean wallet activity, the funds have already crossed three chains and twelve jurisdictions.</p>
+    <p>The question isn't whether your AML program is FINTRAC compliant. It probably is. The question is whether it's built for what financial crime actually looks like in 2025.</p>
+  <div class="article-sources"><a href="https://www.fbi.gov/investigate/cyber/alerts/2025/north-korea-responsible-for-1-5-billion-bybit-hack" target="_blank" rel="noopener">FBI Alert, Bybit Hack ↗</a></div>
+  </div>
+</div>
+
+    <div class="proj-card article-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Oct 14, 2026</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Apr 3, 2024</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
@@ -388,6 +567,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <p>Most TM systems are built around anomaly detection, a customer suddenly moving large sums, hitting velocity limits, transacting at unusual hours. But pig-butchering victims don't look anomalous. They look engaged. They deposit regularly, respond to KYC requests promptly, sometimes even contact support proactively. The fraud lives in the destination, not the behaviour.</p>
         <p>What's actually working is behavioural layering, looking at the combination of onboarding recency, referral chain patterns, withdrawal destination age and cross-platform intelligence. The most effective signals aren't individual alerts. They're clusters: a new account, a referral chain tied to previously flagged addresses, a withdrawal to a wallet that received funds from three other exchange accounts in the past 30 days.</p>
         <p>No TM system catches pig butchering in real time. The goal is earlier detection, better intelligence-sharing between platforms and faster victim notification. The exchanges winning on this aren't just running better rules, they're treating it as an intelligence problem, not a monitoring problem.</p>
+      <div class="article-sources"><a href="https://www.justice.gov/archives/opa/pr/cyber-scam-organization-disrupted-through-seizure-nearly-9m-crypto" target="_blank" rel="noopener">DOJ, $9M Seizure ↗DOJ,</a><a href="https://www.justice.gov/usao-ma/pr/united-states-attorneys-office-files-civil-forfeiture-action-recover-proceeds-1" target="_blank" rel="noopener"> Civil Forfeiture ↗</a></div>
       </div>
     </div>
 
@@ -395,7 +575,7 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Sep 9, 2026</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Oct 7, 2023</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
@@ -410,14 +590,79 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
         <p>Registration isn't the same as maturity. A platform can register with FINTRAC and still run a transaction monitoring system that fires on volume thresholds but misses typology-based patterns entirely. They can file LVCTRs on time and still have no meaningful EDD program for high-risk clients. The framework sets a floor. It doesn't guarantee the ceiling is anywhere near adequate.</p>
         <p>The platforms genuinely ahead aren't just meeting FINTRAC's minimum requirements, they're treating regulatory obligations as a baseline, not a finish line. That means real blockchain analytics capabilities, proper escalation pipelines for complex cases and investigators who can actually work production orders alongside law enforcement.</p>
         <p>Canada's crypto compliance ecosystem is maturing. But there's a meaningful gap between the platforms that registered to operate and the platforms actually built to catch financial crime. That gap is where most of the risk lives right now.</p>
+      <div class="article-sources"><a href="https://fintrac-canafe.canada.ca/guidance-directives/transaction-operation/lvctr/lvctr-eng" target="_blank" rel="noopener">FINTRAC, LVCTR Guidance ↗</a></div>
       </div>
     </div>
+
+    <div class="proj-card article-card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Jan 18, 2023</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
+      </div>
+      <h3 style="font-size:18px;">The FTX collapse wasn't a crypto problem. It was a compliance problem.</h3>
+    </div>
+    <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
+  </div>
+  <div class="article-body">
+    <p>There's a version of the FTX story where the lesson is about the volatility of crypto markets. Where $8 billion in customer funds disappearing overnight is a function of the asset class itself, evidence that this was always too risky, too unregulated, too wild.</p>
+    <p>I don't buy that narrative. What collapsed at FTX wasn't a crypto exchange. It was a company where compliance had no meaningful seat at the table.</p>
+    <p>The basic facts are damning enough. Customer funds commingled with Alameda Research, the affiliated trading firm. No real segregation of assets. No independent audit. When the DOJ got involved, the charges weren't exotic. Wire fraud. Securities fraud. Money laundering. The same financial crimes that have existed since long before blockchain was invented.</p>
+    <p>What strikes me, working in this space, is how preventable the compliance failures were. The absence of a proper AML program, the lack of a compliance function with real authority, the decision to keep customer funds accessible to a related trading entity, these aren't subtle governance failures. They're the basics. The minimum viable compliance program for any institution handling customer money.</p>
+    <p>The FTX collapse should have prompted a serious conversation about what compliance infrastructure looks like for a crypto exchange operating at scale. Instead, the conversation mostly stayed at the level of "crypto is dangerous." The risk isn't the asset. It's the people managing it and whether anyone with compliance authority is actually in the room.</p>
+  <div class="article-sources"><a href="https://www.justice.gov/usao-sdny/press-releases" target="_blank" rel="noopener">DOJ SDNY, FTX Case ↗</a></div>
+  </div>
+</div>
+
+    <div class="proj-card article-card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Dec 9, 2023</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
+      </div>
+      <h3 style="font-size:18px;">What $4.3 billion in fines actually means for crypto compliance</h3>
+    </div>
+    <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
+  </div>
+  <div class="article-body">
+    <p>On November 21, 2023, Binance pleaded guilty to violations of the Bank Secrecy Act, agreeing to pay over $4.3 billion in what became the largest corporate resolution in the history of crypto regulation. Changpeng Zhao, the CEO and a Canadian national, pleaded guilty personally and resigned. FinCEN's share alone, $3.4 billion, came with a five-year independent compliance monitor and a requirement for Binance to fully exit the U.S. market.</p>
+    <p>The numbers are historic. But the compliance failures underneath them weren't sophisticated. They were systematic and deliberate.</p>
+    <p>According to the DOJ and Treasury, Binance allowed transactions tied to Hamas, Al Qaeda, ISIS, ransomware attackers and sanctioned jurisdictions including Iran and North Korea to process without reporting. Not because their compliance team missed it, but because business decisions were made to avoid implementing the controls that would have caught it. That's the distinction that matters. This wasn't a capability gap. It was a governance failure at the top.</p>
+    <p>What the settlement actually buys for the industry is a detailed, public record of what regulators consider non-negotiable. The five-year monitor means Binance's compliance program will be one of the most scrutinized in the world for the foreseeable future. For compliance professionals across the space, that documentation is worth reading closely, it's as close to a regulatory blueprint as you'll get. FINTRAC, FinCEN and their international equivalents are all watching what comes next.</p>
+  <div class="article-sources"><a href="https://www.justice.gov/archives/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution" target="_blank" rel="noopener">DOJ Press Release ↗</a><a href="https://home.treasury.gov/news/press-releases/jy1925" target="_blank" rel="noopener">Treasury / FinCEN ↗</a></div>
+  </div>
+</div>
+
+    <div class="proj-card article-card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Jun 15, 2022</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
+      </div>
+      <h3 style="font-size:18px;">Forty billion dollars gone in a week. What Terra/LUNA actually revealed.</h3>
+    </div>
+    <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
+  </div>
+  <div class="article-body">
+    <p>In May 2022, the TerraUSD stablecoin and its sister token LUNA lost nearly their entire combined market value in under a week. Roughly $40 billion in investor capital, gone. It happened through a mechanism the architecture itself was supposed to prevent, a death spiral in which the system designed to maintain the peg became the instrument of its own destruction.</p>
+    <p>The post-mortems focused on the technical design. An algorithmic stablecoin without real collateral. A system that relied on market confidence as its core stabilization mechanism. When that confidence broke, there was nothing underneath.</p>
+    <p>But the compliance angle is the one that keeps coming back to me. Tens of billions of dollars flowed into the Terra ecosystem on the basis of a 20% annual yield that made no economic sense. Any analyst looking at that yield structure through a risk lens would have flagged it immediately. Returns that high, sustained at scale, don't come from somewhere real. They come from someone else's money.</p>
+    <p>The investors who lost billions were operating in an environment where the standard due diligence frameworks that protect people in regulated markets either didn't exist or weren't applied. No KYC in any meaningful sense. No suitability checks. No obligation to disclose structural risks in plain language. Do Kwon was eventually charged with fraud and sentenced in December 2025. That outcome matters. But the compliance infrastructure failure came long before any criminal charges. The lesson isn't about algorithmic stablecoins specifically. It's about what happens when financial products of that scale operate outside the basic consumer protection frameworks that exist for a reason.</p>
+  <div class="article-sources"><a href="https://www.justice.gov/usao-sdny/pr/crypto-enabled-fraudster-sentenced-orchestrating-40-billion-fraud" target="_blank" rel="noopener">DOJ, Do Kwon Sentencing ↗</a></div>
+  </div>
+</div>
 
     <div class="proj-card article-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Aug 5, 2026</span>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#b5810a;">Sep 12, 2024</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
@@ -434,6 +679,11 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
       </div>
     </div>
 
+  </div>
+  <div class="carousel-nav">
+    <button id="carousel-prev" class="btn btn-outline" style="padding:8px 20px;font-size:12px;">← Prev</button>
+    <span id="carousel-counter" style="font-size:12px;font-family:'Courier New',monospace;color:#888;font-weight:700;letter-spacing:.08em;">1 / 10</span>
+    <button id="carousel-next" class="btn btn-outline" style="padding:8px 20px;font-size:12px;">Next →</button>
   </div>
 </section>
 
@@ -545,20 +795,32 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
     </div>
   </section>
 
-  <!-- RESUME -->
-  <section id="resume">
-    <p class="section-label">Resume</p>
-    <div class="resume-card">
-      <h3>Download My Resume</h3>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="resume.pdf" id="resume-dl" target="_blank" rel="noopener">View Resume</a>
-        <a class="btn btn-outline" href="resume.pdf" download="Joseph_Brian_Hwang_Resume.pdf">Download PDF ↓</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/fcjoseph" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
-      </div>
-    </div>
-  </section>
 
 </main>
+
+<section id="connect-resume">
+  <p class="section-label">Connect &amp; Resume</p>
+  <div class="cr-grid">
+    <div class="resume-card" style="background:#1B3C6D;border-color:#2a5eaa;color:#f0ede6;">
+      <div class="cr-label" style="color:#b5810a;">Let's Connect</div>
+      <h3 style="color:#f0ede6;">Open to meaningful conversations.</h3>
+      <p style="font-size:14px;color:#bdd0e8;line-height:1.75;margin:10px 0 18px;">Whether you're a recruiter, a hiring manager, building something in fintech or crypto or just someone interested in financial crime and digital assets, I'm always open to connecting.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:brian.hwang312@gmail.com">Email Me</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/fcjoseph" target="_blank" rel="noopener" style="color:#f0ede6;border-color:#f0ede6;">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="resume-card">
+      <div class="cr-label">Resume</div>
+      <h3>Download My Resume</h3>
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;margin:10px 0 18px;">Six years of financial crime compliance across regulated fintech, crypto and cross-border payments. Chainalysis-certified and FINTRAC-fluent.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn btn-outline" href="resume.pdf" download="Joseph_Brian_Hwang_Resume.pdf">Download PDF ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <span class="footer-left">© 2026 Joseph Brian Hwang</span>
@@ -571,7 +833,9 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
 </footer>
 
 <script>
-// ── Read toggle (Perspectives articles) ──
+window.addEventListener('scroll',function(){var d=document.documentElement;var pct=(d.scrollTop||document.body.scrollTop)/(d.scrollHeight-d.clientHeight)*100;var bar=document.getElementById('scroll-progress');if(bar)bar.style.width=Math.min(pct,100)+'%';});
+
+// ── Read toggle ──
 document.querySelectorAll('.read-toggle').forEach(function(btn){
   btn.addEventListener('click',function(){
     var body=btn.closest('.article-card').querySelector('.article-body');
@@ -580,21 +844,16 @@ document.querySelectorAll('.read-toggle').forEach(function(btn){
   });
 });
 
-// ── Expertise card toggles ──
+// ── Expertise toggles ──
 document.querySelectorAll('#expertise .proj-card').forEach(function(card){
   var h3=card.querySelector('h3');
   if(!h3) return;
-
-  // wrap everything after h3 in a collapsible div
   var projBody=document.createElement('div');
   projBody.className='proj-body';
-  var toMove=[];
-  var el=h3.nextElementSibling;
-  while(el){ toMove.push(el); el=el.nextElementSibling; }
-  toMove.forEach(function(n){ projBody.appendChild(n); });
+  var toMove=[],el=h3.nextElementSibling;
+  while(el){toMove.push(el);el=el.nextElementSibling;}
+  toMove.forEach(function(n){projBody.appendChild(n);});
   card.appendChild(projBody);
-
-  // create header row with h3 + toggle button
   var row=document.createElement('div');
   row.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:16px;';
   card.insertBefore(row,h3);
@@ -604,14 +863,88 @@ document.querySelectorAll('#expertise .proj-card').forEach(function(card){
   btn.style.cssText='flex-shrink:0;padding:7px 16px;font-size:11px;';
   btn.textContent='More →';
   row.appendChild(btn);
-
   btn.addEventListener('click',function(){
     projBody.classList.toggle('open');
     btn.textContent=projBody.classList.contains('open')?'Less ↑':'More →';
   });
 });
 
-// ── Page fade-in on load ──
+// ── Perspectives carousel + sidebar ──
+(function(){
+  var cards=Array.from(document.querySelectorAll('#perspectives-carousel .article-card'));
+  var counter=document.getElementById('carousel-counter');
+  var prevBtn=document.getElementById('carousel-prev');
+  var nextBtn=document.getElementById('carousel-next');
+  if(!cards.length) return;
+  var idx=0;
+
+  // Build sidebar + layout wrapper
+  var carouselEl=document.getElementById('perspectives-carousel');
+  var carouselNav=document.querySelector('.carousel-nav');
+  var layout=document.createElement('div');
+  layout.className='perspectives-layout';
+  var sidebar=document.createElement('div');
+  sidebar.id='perspectives-sidebar';
+  var main=document.createElement('div');
+  main.className='perspectives-main';
+  carouselEl.parentNode.insertBefore(layout,carouselEl);
+  layout.appendChild(sidebar);
+  layout.appendChild(main);
+  main.appendChild(carouselEl);
+  if(carouselNav) main.appendChild(carouselNav);
+
+  // Populate sidebar items
+  var sidebarItems=[];
+  cards.forEach(function(card,i){
+    var h3=card.querySelector('h3');
+    var dateEl=card.querySelector('[style*="color:#b5810a"]');
+    var item=document.createElement('div');
+    item.className='sidebar-item';
+    item.innerHTML='<div class="sidebar-date">'+(dateEl?dateEl.textContent:'')+'</div><div class="sidebar-title">'+(h3?h3.textContent:'')+'</div>';
+    item.addEventListener('click',function(){show(i);});
+    sidebar.appendChild(item);
+    sidebarItems.push(item);
+  });
+
+  function resetCard(card){
+    var body=card.querySelector('.article-body');
+    if(body&&body.classList.contains('open')){
+      body.classList.remove('open');
+      var t=card.querySelector('.read-toggle');
+      if(t) t.textContent='Read →';
+    }
+  }
+
+  function show(n){
+    resetCard(cards[idx]);
+    cards[idx].classList.remove('carousel-active');
+    sidebarItems[idx].classList.remove('sidebar-active');
+    idx=Math.max(0,Math.min(n,cards.length-1));
+    cards[idx].classList.add('carousel-active');
+    sidebarItems[idx].classList.add('sidebar-active');
+    var body=cards[idx].querySelector('.article-body');
+    if(body) body.classList.add('open');
+    sidebarItems[idx].scrollIntoView({block:'nearest',behavior:'smooth'});
+    if(counter) counter.textContent=(idx+1)+' / '+cards.length;
+    if(prevBtn){prevBtn.style.opacity=idx===0?'0.3':'1';prevBtn.style.pointerEvents=idx===0?'none':'auto';}
+    if(nextBtn){nextBtn.style.opacity=idx===cards.length-1?'0.3':'1';nextBtn.style.pointerEvents=idx===cards.length-1?'none':'auto';}
+  }
+
+  if(prevBtn) prevBtn.addEventListener('click',function(){show(idx-1);});
+  if(nextBtn) nextBtn.addEventListener('click',function(){show(idx+1);});
+
+  // swipe
+  var tsx=0;
+  carouselEl.addEventListener('touchstart',function(e){tsx=e.touches[0].clientX;},{passive:true});
+  carouselEl.addEventListener('touchend',function(e){
+    var diff=tsx-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>50){diff>0?show(idx+1):show(idx-1);}
+  },{passive:true});
+
+  show(0);
+})();
+
+// ── Page fade-in ──
 document.documentElement.style.opacity='0';
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
@@ -619,7 +952,53 @@ document.addEventListener('DOMContentLoaded',function(){
     document.documentElement.style.opacity='1';
   },40);
 });
+
+
+// ── Neural network hero background ──
+(function(){
+  var hero=document.getElementById('hero');
+  if(!hero) return;
+  var cvs=document.createElement('canvas');
+  cvs.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.35;';
+  if(getComputedStyle(hero).position==='static') hero.style.position='relative';
+  hero.style.isolation='isolate';
+  hero.insertBefore(cvs,hero.firstChild);
+  var ctx=cvs.getContext('2d');
+  var nodes=[];
+  var DIST=145;
+  var NUM=22;
+  function resize(){ cvs.width=hero.offsetWidth; cvs.height=hero.offsetHeight; }
+  function mkNode(){
+    return{ x:Math.random()*cvs.width, y:Math.random()*cvs.height, r:2.5+Math.random()*1.5, dx:(Math.random()-.5)*.28, dy:(Math.random()-.5)*.28 };
+  }
+  resize();
+  for(var i=0;i<NUM;i++) nodes.push(mkNode());
+  function draw(){
+    ctx.clearRect(0,0,cvs.width,cvs.height);
+    for(var i=0;i<nodes.length;i++){
+      for(var j=i+1;j<nodes.length;j++){
+        var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<DIST){
+          var a=(1-d/DIST)*0.3;
+          ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.strokeStyle='rgba(27,60,109,'+a+')';ctx.lineWidth=1;ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(function(p){
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);ctx.fillStyle='rgba(27,60,109,0.1)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(42,94,170,0.8)';ctx.fill();
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0||p.x>cvs.width) p.dx*=-1;
+      if(p.y<0||p.y>cvs.height) p.dy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize',resize);
+})();
 </script>
+
 
 </body>
 </html>
