@@ -170,12 +170,18 @@ footer{border-top:1.5px solid var(--ink);padding:28px 32px;display:flex;align-it
   #hero img[src="photo.jpg"] { display: none; }
   #hero img { display: none !important; }
   .hero-left { order: 0; padding-right: 0; }
+  .carousel-chips { display:block; }
 }
 @media(max-width:420px){
   .nav-links li:nth-child(1),.nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4){display:none;}
   #hero h1{font-size:26px;}
   .diff-title{font-size:14px;}
 }
+
+.carousel-chips { display:none; overflow-x:auto; white-space:nowrap; padding:10px 0 2px; scrollbar-width:none; margin-top:8px; }
+.carousel-chips::-webkit-scrollbar { display:none; }
+.carousel-chip { display:inline-block; padding:5px 12px; border:1.5px solid #1a1a1a; border-radius:20px; font-size:10px; font-family:"Courier New",monospace; font-weight:700; cursor:pointer; white-space:nowrap; background:transparent; color:#1a1a1a; margin-right:6px; transition:background .15s,color .15s; }
+.carousel-chip.chip-active { background:#1B3C6D; color:#fff; border-color:#1B3C6D; }
 
 #scroll-progress { transition:width .08s linear; }
 
@@ -293,9 +299,9 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
   <section id="hero">
     <div class="hero-left">
       <div class="hero-badge">Open to Opportunities</div>
-      <p class="hero-eyebrow">Financial Crime Compliance Specialist · Digital Asset Specialist</p>
-      <h1>Intercepting financial crime at the intersection of crypto and compliance.</h1>
-      <p class="hero-bio">Financial crime specialist with six years bridging traditional finance and the digital asset industry. Chainalysis-certified, FINTRAC-fluent and directly engaged with law enforcement including RCMP, OPP and FBI. Works across the full financial crime stack, from hands-on blockchain investigations and regulatory filings to building the compliance infrastructure that keeps platforms defensible at scale.</p>
+      <p class="hero-eyebrow">Financial Crime Specialist · AML · Fraud · Compliance · Digital Assets</p>
+      <h1>Intercepting financial crime at the intersection of crypto, fraud and compliance.</h1>
+      <p class="hero-bio">Financial crime specialist with six years bridging traditional finance and the digital asset industry. Chainalysis-certified, FINTRAC-fluent and directly engaged with law enforcement including RCMP, OPP and FBI. Works across the full financial crime stack, fraud investigations, AML reporting, blockchain tracing and compliance programs that keep platforms defensible at scale.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/fcjoseph" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -463,17 +469,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
       </div>
-      <h3 style="font-size:18px;">The Binance hack: same playbook, four times the scale.</h3>
+      <h3 style="font-size:18px;">North Korea just robbed Binance of $6.3 billion. I'm not sure the industry is ready for what that means.</h3>
     </div>
     <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
   </div>
   <div class="article-body">
-    <p>On October 29, 2026, Binance lost approximately $6.36 billion in virtual assets in roughly twenty minutes. Funds moved across ten blockchains simultaneously. The FBI attributed it to North Korea's TraderTraitor group within two days. It is the largest cryptocurrency hack in history.</p>
-    <p>Eight months earlier, the same group stole $1.5 billion from Bybit. The Binance attack was four times larger. TraderTraitor doesn't repeat playbooks that fail. They repeat playbooks that work.</p>
-    <p>The methodology is consistent: compromise hot wallet signing infrastructure, move funds simultaneously across multiple chains to outpace freeze responses, convert immediately to assets that are harder to block. TRM Labs confirmed the attack compromised Binance's multi-chain signing infrastructure. The speed, $6.36 billion in twenty minutes, wasn't an accident. It was designed specifically to outrun the coordination required to freeze funds across ten blockchains at once.</p>
-    <p>The coordinated freeze response was genuinely impressive. Stablecoin issuers and exchanges acting together managed to freeze approximately $3 billion of the stolen assets. That's faster and more effective than anything we've seen in a comparable incident. But $3 billion frozen means $3.3 billion that wasn't. On ten chains. In twenty minutes.</p>
-    <p>Binance's own disclosure noted that their security team had detected and prevented 57 suspected North Korean cyber intrusion attempts during 2026. The 58th got through. That's not a failure of effort. It's a structural problem: compliance programs and security architectures that are designed for criminal behaviour patterns, not state-sponsored adversaries operating with nation-level patience and precision.</p>
-    <p>The compliance industry needs a different conversation. Not about whether AML programs are FINTRAC or BSA compliant, most are. But about whether the threat intelligence layer, the freeze coordination infrastructure and the multi-chain monitoring architecture are built for what financial crime from nation-states actually looks like. Two attacks of this scale in one year should settle that question.</p>
+    <p>Look, I've been in crypto compliance long enough to remember when a $100M hack felt catastrophic. Last month, $6.36 billion left Binance in roughly twenty minutes. It's the biggest crypto theft in history and I'm still processing what that actually means for everyone working in this space.</p>
+    <p>The FBI confirmed North Korea's TraderTraitor group was responsible, the same crew behind the Bybit hack eight months earlier. Only this time, they took four times as much. If that number doesn't stop you in your tracks, I don't know what will.</p>
+    <p>Here's what gets me: Binance caught 57 suspected North Korean intrusion attempts in 2026 alone. Fifty-seven. And the fifty-eighth one got through anyway. That's not carelessness, that's the reality of defending against a state-funded operation with basically unlimited time and patience.</p>
+    <p>The coordinated freeze response was genuinely impressive. Within hours, stablecoin issuers froze roughly $3 billion of the stolen funds. That's real progress from how these situations went even two years ago. But $3 billion frozen also means $3.3 billion that wasn't. Gone. Across ten blockchains. In twenty minutes.</p>
+    <p>The honest truth is that most compliance programs aren't built for nation-state threats. The frameworks we use, transaction monitoring, filing suspicious activity reports, verifying customer identities, were designed to catch criminals. Not governments. Not adversaries who study your defences for months before striking once, perfectly. Two attacks of this scale in one year should change how the industry thinks about what a compliance program is actually supposed to do.</p>
     <div class="article-sources">
       <a href="https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack" target="_blank" rel="noopener">FBI Alert ↗</a>
       <a href="https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history" target="_blank" rel="noopener">TRM Labs Report ↗</a>
@@ -490,16 +495,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
           </div>
-          <h3 style="font-size:18px;">Derivatives are where crypto is going. Most compliance programs aren't built for it.</h3>
+          <h3 style="font-size:18px;">Crypto exchanges aren't just exchanges anymore. The compliance problem that comes with that.</h3>
         </div>
         <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
       </div>
       <div class="article-body">
-        <p>The spot trading model is maturing. Spreads have compressed, margins are thin and the retail-driven volume that fuelled the 2020-2021 cycle hasn't come back the same way. The exchanges with serious long-term ambitions have already started building the next thing: futures, options and perpetual contracts that make simple spot trading look like a starting point, not the destination.</p>
-        <p>Coinbase's acquisition of FairX in 2022 and the launch of Coinbase Financial Markets was a clear signal. CFTC-regulated futures, options on Bitcoin and Ethereum, institutional-grade infrastructure. The offshore perpetuals market, dominated by Binance, Bybit and OKX, has been running this playbook for years. The question now is whether regulated venues can build it compliantly faster than offshore venues can legitimize themselves.</p>
-        <p>The compliance problems aren't hypothetical. The AML layer still applies, but a market integrity layer becomes equally critical and most crypto compliance programs aren't built for it. Spoofing, placing large orders with no intention to fill them to move price, is a CFTC enforcement priority that barely exists in traditional transaction monitoring logic. Funding rate manipulation in perpetual contracts, where large leveraged positions push rates in a profitable direction, is a typology most TM systems can't detect. Wash trading looks different in derivatives than it does in spot, harder to surface and more consequential when missed.</p>
-        <p>What regulated exchanges building derivatives products genuinely need is a compliance architecture that spans financial crime and market integrity simultaneously. Most crypto compliance programs are built for the first layer only. Traditional finance compliance teams understand the second but lack crypto-native context. The institutions that figure out how to combine both will be the ones regulators actually trust to run a derivatives product at scale.</p>
-        <p>That infrastructure is still being built. The compliance professionals who understand what it needs to look like are in short supply.</p>
+        <p>For a while, crypto was relatively simple from a product standpoint. You could buy Bitcoin. You could sell it. That was pretty much the whole menu.</p>
+        <p>That world is over. The major platforms are now offering futures, options and perpetual contracts, the same complex instruments that have existed in traditional financial markets for decades. Coinbase's acquisition of FairX in 2022 was an early signal of where things were heading. Their derivatives exchange is now regulated by the CFTC, which is a different regulator from the ones most crypto compliance teams are used to dealing with.</p>
+        <p>Quick explainer: a futures contract lets you agree today to buy or sell something at a set price on a future date. Options give you the right (but not the obligation) to do the same. Perpetual contracts are unique to crypto, they work like futures but never expire and there's a daily fee that keeps the price anchored to the underlying asset. These products let traders take bigger positions with less money upfront, which makes them popular and also makes them riskier.</p>
+        <p>The compliance problem is that derivatives open up manipulation tactics that don't exist in simple buy-and-sell trading. Spoofing, placing large fake orders to push the price, then cancelling before they fill, is a CFTC enforcement priority. Funding rate manipulation in perpetuals is another one. Most crypto compliance programs weren't built to detect either of these.</p>
+        <p>What the industry needs is a compliance setup that covers both financial crime (the AML side) and market integrity (the manipulation side) at the same time. Right now, most teams are strong on one or the other, not both. The platforms that figure out how to combine them will be better positioned when regulators inevitably start paying closer attention to the derivatives side of the business.</p>
       </div>
     </div>
 
@@ -511,18 +516,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
           </div>
-          <h3 style="font-size:18px;">Prediction markets went mainstream. The compliance framework didn't follow.</h3>
+          <h3 style="font-size:18px;">Prediction markets are bigger than you think. The rules haven't caught up.</h3>
         </div>
         <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
       </div>
       <div class="article-body">
-        <p>Polymarket crossed $1B in trading volume during the 2024 US election cycle. Kalshi won its court battle with the CFTC over political event contracts. What looked like a fringe product two years ago is now a legitimate asset class and one that existing compliance frameworks were never designed to handle.</p>
-        <p>Prediction markets are, at their core, binary outcome contracts on real-world events. Will this candidate win the election? Will this company get acquired? Will this regulatory decision go a certain way? The product is elegant. The compliance problem it creates is not.</p>
-        <p>The most underappreciated risk isn't AML, it's information asymmetry exploitation, the prediction market equivalent of insider trading. Someone with material non-public information placing large positions on a political outcome, a corporate event or a regulatory decision before it's announced. Traditional financial markets have decades of case law and surveillance infrastructure around this. Prediction markets have almost none.</p>
-        <p>The AML risk is real but takes a different shape. Large binary positions structured across multiple accounts can effectively guarantee a payout on one side while obscuring the source of funds on the other. It's a layering mechanism that sits outside the transaction patterns most monitoring systems are calibrated to find.</p>
-        <p>Then there's the oracle problem unique to decentralised prediction markets. The resolution mechanism, the data source that determines who won, can itself be manipulated. That's not just a technical risk, it's a compliance and market integrity risk with no clean parallel in traditional finance.</p>
-        <p>Regulatory classification remains genuinely unsettled. Are these securities? Commodity contracts? Something else entirely? Kalshi's CFTC win resolved one question and opened several others. For compliance professionals, the absence of a clear framework isn't an excuse to wait, it's an argument for building programs flexible enough to absorb whatever classification eventually lands.</p>
-        <p>Prediction markets are going to be part of the regulated crypto landscape. The compliance infrastructure needs to start taking them seriously now.</p>
+        <p>If you bet on who'd win the 2024 US election on Polymarket, you were part of something bigger than most people realized at the time. That platform alone crossed $1 billion in trading volume during election week. Kalshi, a competing platform, just won a court battle allowing it to offer contracts on political events in the US. What felt fringe a couple years ago is now a real financial market.</p>
+        <p>Quick explainer if you're new to this: a prediction market lets you bet on real-world outcomes. Will this team win? Will this bill pass? Will this company get acquired? You buy a contract that pays out if you're right. The price reflects what everyone collectively thinks the odds are. Simple enough.</p>
+        <p>The compliance gaps, though, are not simple. The most obvious one: what happens when someone bets on an event they know the outcome of before anyone else does? In stock markets, that's insider trading and it's illegal. In prediction markets, there's no equivalent rule yet. Someone with advance knowledge of a political decision or regulatory announcement could place a large bet and clean up, legally, for now.</p>
+        <p>There's also a money laundering angle that gets less attention. You can structure bets across multiple accounts to guarantee a payout on one side while hiding where the money originally came from. It's a layering technique that existing monitoring systems aren't looking for because nobody designed those systems with prediction markets in mind.</p>
+        <p>Regulatory classification is still unsettled, are these securities? Commodity contracts? Nobody's fully agreed yet. That uncertainty isn't an excuse to wait. If anything, it's an argument for getting ahead of this now, before the enforcement actions start and everyone scrambles to catch up.</p>
       </div>
     </div>
 
@@ -534,17 +537,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
       </div>
-      <h3 style="font-size:18px;">The Bybit hack wasn't just a security breach. It was a compliance problem.</h3>
+      <h3 style="font-size:18px;">Someone stole $1.5 billion from Bybit. What I think about when I think about stories like this.</h3>
     </div>
     <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
   </div>
   <div class="article-body">
-    <p>The morning of February 21, 2025, Bybit lost $1.5 billion in virtual assets in a single attack. Five days later, the FBI formally attributed it to North Korea's TraderTraitor group, the same state-sponsored threat actor behind years of targeted crypto theft. The largest single exchange hack on record. Within hours the funds were already moving, converted to Bitcoin, dispersed across thousands of wallets on multiple blockchains simultaneously.</p>
-    <p>Most of the coverage treated it as a cybersecurity story. A compromised signing key, a cold wallet breach, a sophisticated attacker. All accurate. But from where I sit, it was equally a compliance story and that part didn't get nearly enough attention.</p>
-    <p>The blockchain tracing response was genuinely impressive. Within days, analytics firms had mapped the wallet clusters, the FBI had published specific Ethereum addresses and exchanges globally were receiving freeze requests. The on-chain intelligence was there, nearly in real time.</p>
-    <p>The gap was everything that came before the theft. Compliance programs at exchanges aren't built for nation-state adversaries. STR filing frameworks, transaction monitoring rules, KYC workflows, these are calibrated around criminal behaviour patterns. Not geopolitical threat actors who probe systems for months, wait, then execute with military precision. TraderTraitor doesn't trigger velocity alerts. They don't structure transactions. They hit once, catastrophically, then launder with the same operational discipline that went into the breach itself.</p>
-    <p>What Bybit made clear is that crypto exchanges need a threat intelligence layer sitting alongside traditional AML infrastructure. Blockchain analytics firms can deliver this in near real time, but only if compliance teams are consuming that intelligence proactively rather than reactively. By the time a SAR gets filed on North Korean wallet activity, the funds have already crossed three chains and twelve jurisdictions.</p>
-    <p>The question isn't whether your AML program is FINTRAC compliant. It probably is. The question is whether it's built for what financial crime actually looks like in 2025.</p>
+    <p>On February 21, 2025, hackers stole $1.5 billion from crypto exchange Bybit. The FBI confirmed North Korea's TraderTraitor group was responsible within five days of the attack. For context, that's more than many mid-sized banks hold in total deposits. Gone in one day.</p>
+    <p>The post-hack response was actually impressive. Analytics firms mapped the wallet clusters almost immediately. The FBI published specific Ethereum addresses connected to the theft within days. Exchanges and stablecoin issuers coordinated freezes faster than I'd seen before. The on-chain intelligence was there, nearly in real time.</p>
+    <p>But here's what that fast response also tells you: the tools to track this kind of theft after the fact are genuinely getting better. What hasn't kept pace is the ability to prevent it in the first place.</p>
+    <p>Most AML programs are designed to catch financial criminals, people structuring transactions to hide illegal income or scammers laundering money through exchanges. That's hard enough. North Korea's hackers operate completely differently. They're patient. They study their targets for months. They hit once, decisively, then immediately spread funds across dozens of wallets to outrun freeze attempts. Traditional compliance controls don't catch that. They weren't designed to.</p>
+    <p>The question the industry needs to start taking seriously isn't whether your compliance program meets regulatory requirements. It probably does. The question is whether it's designed for the actual threat environment and that threat environment now includes nation-states with serious technical resources and nothing but time.</p>
   <div class="article-sources"><a href="https://www.fbi.gov/investigate/cyber/alerts/2025/north-korea-responsible-for-1-5-billion-bybit-hack" target="_blank" rel="noopener">FBI Alert, Bybit Hack ↗</a></div>
   </div>
 </div>
@@ -557,16 +559,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
-          <h3 style="font-size:18px;">On pig butchering and why TM controls keep missing it</h3>
+          <h3 style="font-size:18px;">The fraud your bank's monitoring system won't catch.</h3>
         </div>
         <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
       </div>
       <div class="article-body">
-        <p>The fraud doesn't start with crypto. It starts with a text message.</p>
-        <p>By the time a victim deposits funds into an exchange, they've already been in a "relationship" with their scammer for weeks, sometimes months. They believe they're investing alongside a trusted contact. They're not panicked, they're excited. And that's exactly what makes pig butchering so difficult to catch with traditional transaction monitoring controls.</p>
-        <p>Most TM systems are built around anomaly detection, a customer suddenly moving large sums, hitting velocity limits, transacting at unusual hours. But pig-butchering victims don't look anomalous. They look engaged. They deposit regularly, respond to KYC requests promptly, sometimes even contact support proactively. The fraud lives in the destination, not the behaviour.</p>
-        <p>What's actually working is behavioural layering, looking at the combination of onboarding recency, referral chain patterns, withdrawal destination age and cross-platform intelligence. The most effective signals aren't individual alerts. They're clusters: a new account, a referral chain tied to previously flagged addresses, a withdrawal to a wallet that received funds from three other exchange accounts in the past 30 days.</p>
-        <p>No TM system catches pig butchering in real time. The goal is earlier detection, better intelligence-sharing between platforms and faster victim notification. The exchanges winning on this aren't just running better rules, they're treating it as an intelligence problem, not a monitoring problem.</p>
+        <p>Pig butchering doesn't start with cryptocurrency. It starts with a wrong-number text message.</p>
+        <p>You get a message from someone you don't know. They're apologetic, friendly, curious about your day. Over the following weeks, they become a regular presence, checking in, sharing things about themselves, eventually introducing you to an investment opportunity that's supposedly been making them serious money. By the time crypto enters the picture, you've known this person for two or three months. You trust them. And that trust is exactly what the scam depends on.</p>
+        <p>The name sounds jarring and it is. It refers to the practice of fattening up a pig before slaughter, except the "pig" is the victim and the fattening is the relationship-building phase that happens before any money changes hands.</p>
+        <p>Here's why exchanges struggle to catch it: the people getting scammed don't look like fraud victims. They look like engaged customers. They onboard normally, pass identity checks, respond to messages and deposit money in growing amounts. The fraud is in where the money goes, not in how the customer behaves. Most transaction monitoring systems are designed to flag unusual behaviour. Pig butchering victims don't behave unusually, so the alerts don't fire until it's often too late.</p>
+        <p>What's starting to work is looking beyond the customer's own behaviour, checking where the money lands, whether that destination address has been linked to other reports, how old the receiving wallet is. It's less about monitoring one customer and more about mapping a wider network. It's as much an intelligence problem as a compliance problem. And the industry is still catching up.</p>
       <div class="article-sources"><a href="https://www.justice.gov/archives/opa/pr/cyber-scam-organization-disrupted-through-seizure-nearly-9m-crypto" target="_blank" rel="noopener">DOJ, $9M Seizure ↗DOJ,</a><a href="https://www.justice.gov/usao-ma/pr/united-states-attorneys-office-files-civil-forfeiture-action-recover-proceeds-1" target="_blank" rel="noopener"> Civil Forfeiture ↗</a></div>
       </div>
     </div>
@@ -579,17 +581,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
-          <h3 style="font-size:18px;">VASP registration is good policy. Compliance maturity takes longer.</h3>
+          <h3 style="font-size:18px;">Canada made crypto exchanges register with regulators. That's actually a big deal.</h3>
         </div>
         <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
       </div>
       <div class="article-body">
-        <p>Canada was late to regulating virtual asset service providers. That's not a controversial statement, it's something any crypto compliance professional working in this market before 2024 felt every time they filed an STR on a transaction that a registered VASP elsewhere would have already flagged.</p>
-        <p>The VASP registration requirements changed that. For the first time, Canadian crypto platforms have a defined regulatory baseline, AML/ATF programs, reporting obligations, record-keeping requirements. As someone who spent years executing those obligations before they were formally codified, I think FINTRAC got the framework mostly right.</p>
-        <p>What concerns me is the implementation gap.</p>
-        <p>Registration isn't the same as maturity. A platform can register with FINTRAC and still run a transaction monitoring system that fires on volume thresholds but misses typology-based patterns entirely. They can file LVCTRs on time and still have no meaningful EDD program for high-risk clients. The framework sets a floor. It doesn't guarantee the ceiling is anywhere near adequate.</p>
-        <p>The platforms genuinely ahead aren't just meeting FINTRAC's minimum requirements, they're treating regulatory obligations as a baseline, not a finish line. That means real blockchain analytics capabilities, proper escalation pipelines for complex cases and investigators who can actually work production orders alongside law enforcement.</p>
-        <p>Canada's crypto compliance ecosystem is maturing. But there's a meaningful gap between the platforms that registered to operate and the platforms actually built to catch financial crime. That gap is where most of the risk lives right now.</p>
+        <p>For a long time, if you wanted to run a crypto exchange serving Canadians, there wasn't much of a formal process. You could operate, offer trading, hold customer funds, without the kind of regulatory oversight that a bank or investment dealer would face.</p>
+        <p>That changed. As of 2024, any business exchanging or transferring crypto for Canadians has to register with FINTRAC (Canada's financial intelligence unit) as a money services business. That means having an anti-money laundering program, reporting suspicious transactions, keeping proper records, the same framework that applies to currency exchanges and money transfer businesses. It's called the PCMLTFA, if you want the full name.</p>
+        <p>As someone who's been executing those obligations at Canadian crypto platforms for years, often before they were formally required, the registration rules feel overdue. And mostly right.</p>
+        <p>What I mean by "mostly": registration sets a floor. It tells platforms, here's the minimum. Have a compliance program. Report suspicious transactions. Keep records. That's genuinely important. What it doesn't guarantee is that any of it is actually good. A platform can register, check all the boxes and still have a transaction monitoring system that fires on volume but misses patterns that actually matter.</p>
+        <p>Registration is a start. The platforms I'd actually trust to catch financial crime aren't the ones just meeting the requirements. They're the ones treating the requirements as the beginning of the conversation, not the end.</p>
       <div class="article-sources"><a href="https://fintrac-canafe.canada.ca/guidance-directives/transaction-operation/lvctr/lvctr-eng" target="_blank" rel="noopener">FINTRAC, LVCTR Guidance ↗</a></div>
       </div>
     </div>
@@ -602,16 +603,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
       </div>
-      <h3 style="font-size:18px;">The FTX collapse wasn't a crypto problem. It was a compliance problem.</h3>
+      <h3 style="font-size:18px;">FTX collapsed. It wasn't really a crypto story.</h3>
     </div>
     <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
   </div>
   <div class="article-body">
-    <p>There's a version of the FTX story where the lesson is about the volatility of crypto markets. Where $8 billion in customer funds disappearing overnight is a function of the asset class itself, evidence that this was always too risky, too unregulated, too wild.</p>
-    <p>I don't buy that narrative. What collapsed at FTX wasn't a crypto exchange. It was a company where compliance had no meaningful seat at the table.</p>
-    <p>The basic facts are damning enough. Customer funds commingled with Alameda Research, the affiliated trading firm. No real segregation of assets. No independent audit. When the DOJ got involved, the charges weren't exotic. Wire fraud. Securities fraud. Money laundering. The same financial crimes that have existed since long before blockchain was invented.</p>
-    <p>What strikes me, working in this space, is how preventable the compliance failures were. The absence of a proper AML program, the lack of a compliance function with real authority, the decision to keep customer funds accessible to a related trading entity, these aren't subtle governance failures. They're the basics. The minimum viable compliance program for any institution handling customer money.</p>
-    <p>The FTX collapse should have prompted a serious conversation about what compliance infrastructure looks like for a crypto exchange operating at scale. Instead, the conversation mostly stayed at the level of "crypto is dangerous." The risk isn't the asset. It's the people managing it and whether anyone with compliance authority is actually in the room.</p>
+    <p>In November 2022, FTX, one of the largest crypto exchanges in the world, imploded. Around $8 billion in customer funds vanished. Sam Bankman-Fried, the founder, was eventually convicted of fraud and sentenced to 25 years in prison.</p>
+    <p>You've probably heard a version of this story framed as evidence that crypto is too risky, too unregulated, too wild to be taken seriously. I think that framing misses what actually happened.</p>
+    <p>FTX didn't fail because it was a crypto company. It failed because nobody was watching the money.</p>
+    <p>The basic mechanics of the collapse were embarrassingly old-fashioned. Customer funds, money belonging to people trading on the platform, were being quietly moved into Alameda Research, an affiliated trading firm that Bankman-Fried also controlled. Those funds were then used to cover losses, make investments and fund other spending. This isn't a crypto problem. This is what happens when you don't keep client money separate from company money. When there's no independent audit. When the person running compliance reports to the same person doing the trades. These are basic governance failures that have existed in financial fraud long before blockchain existed.</p>
+    <p>The lesson isn't "crypto is dangerous." The lesson is that the fundamentals matter, no matter what you're trading.</p>
   <div class="article-sources"><a href="https://www.justice.gov/usao-sdny/press-releases" target="_blank" rel="noopener">DOJ SDNY, FTX Case ↗</a></div>
   </div>
 </div>
@@ -624,15 +625,15 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">4 min read</span>
       </div>
-      <h3 style="font-size:18px;">What $4.3 billion in fines actually means for crypto compliance</h3>
+      <h3 style="font-size:18px;">Binance paid $4.3 billion in fines. What I actually took from that.</h3>
     </div>
     <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
   </div>
   <div class="article-body">
-    <p>On November 21, 2023, Binance pleaded guilty to violations of the Bank Secrecy Act, agreeing to pay over $4.3 billion in what became the largest corporate resolution in the history of crypto regulation. Changpeng Zhao, the CEO and a Canadian national, pleaded guilty personally and resigned. FinCEN's share alone, $3.4 billion, came with a five-year independent compliance monitor and a requirement for Binance to fully exit the U.S. market.</p>
-    <p>The numbers are historic. But the compliance failures underneath them weren't sophisticated. They were systematic and deliberate.</p>
-    <p>According to the DOJ and Treasury, Binance allowed transactions tied to Hamas, Al Qaeda, ISIS, ransomware attackers and sanctioned jurisdictions including Iran and North Korea to process without reporting. Not because their compliance team missed it, but because business decisions were made to avoid implementing the controls that would have caught it. That's the distinction that matters. This wasn't a capability gap. It was a governance failure at the top.</p>
-    <p>What the settlement actually buys for the industry is a detailed, public record of what regulators consider non-negotiable. The five-year monitor means Binance's compliance program will be one of the most scrutinized in the world for the foreseeable future. For compliance professionals across the space, that documentation is worth reading closely, it's as close to a regulatory blueprint as you'll get. FINTRAC, FinCEN and their international equivalents are all watching what comes next.</p>
+    <p>On November 21, 2023, Binance pleaded guilty to violating US anti-money laundering laws and agreed to pay over $4.3 billion, the largest settlement in the history of crypto. Changpeng Zhao, the founder and CEO (a Canadian citizen), stepped down and pleaded guilty personally. $3.4 billion went to FinCEN (the US financial crimes agency) and $968 million went to OFAC (the sanctions enforcement arm of the Treasury). The settlement also came with a five-year independent compliance monitor, essentially an outside overseer watching everything Binance does for the next five years.</p>
+    <p>The violations weren't exotic. According to the DOJ and Treasury, Binance allowed transactions connected to terrorist groups including Hamas and Al Qaeda, ransomware attackers and users in sanctioned countries like Iran and North Korea to pass through without being flagged or reported. Not because their compliance team missed it. Because deliberate decisions were made to avoid building the systems that would have caught it.</p>
+    <p>That's the part I keep coming back to. This wasn't a capability failure. Binance had the resources and the people. They made a business decision that compliance infrastructure would slow growth and they chose growth.</p>
+    <p>For anyone working in this space, the settlement documents are worth reading. The DOJ and Treasury laid out exactly what they expected Binance to have in place and didn't. It's as close to a regulatory instruction manual as the industry has ever been given publicly. The question is whether anyone uses it.</p>
   <div class="article-sources"><a href="https://www.justice.gov/archives/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution" target="_blank" rel="noopener">DOJ Press Release ↗</a><a href="https://home.treasury.gov/news/press-releases/jy1925" target="_blank" rel="noopener">Treasury / FinCEN ↗</a></div>
   </div>
 </div>
@@ -645,15 +646,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
         <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
       </div>
-      <h3 style="font-size:18px;">Forty billion dollars gone in a week. What Terra/LUNA actually revealed.</h3>
+      <h3 style="font-size:18px;">Forty billion dollars disappeared in a week. Here's what I think actually went wrong.</h3>
     </div>
     <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
   </div>
   <div class="article-body">
-    <p>In May 2022, the TerraUSD stablecoin and its sister token LUNA lost nearly their entire combined market value in under a week. Roughly $40 billion in investor capital, gone. It happened through a mechanism the architecture itself was supposed to prevent, a death spiral in which the system designed to maintain the peg became the instrument of its own destruction.</p>
-    <p>The post-mortems focused on the technical design. An algorithmic stablecoin without real collateral. A system that relied on market confidence as its core stabilization mechanism. When that confidence broke, there was nothing underneath.</p>
-    <p>But the compliance angle is the one that keeps coming back to me. Tens of billions of dollars flowed into the Terra ecosystem on the basis of a 20% annual yield that made no economic sense. Any analyst looking at that yield structure through a risk lens would have flagged it immediately. Returns that high, sustained at scale, don't come from somewhere real. They come from someone else's money.</p>
-    <p>The investors who lost billions were operating in an environment where the standard due diligence frameworks that protect people in regulated markets either didn't exist or weren't applied. No KYC in any meaningful sense. No suitability checks. No obligation to disclose structural risks in plain language. Do Kwon was eventually charged with fraud and sentenced in December 2025. That outcome matters. But the compliance infrastructure failure came long before any criminal charges. The lesson isn't about algorithmic stablecoins specifically. It's about what happens when financial products of that scale operate outside the basic consumer protection frameworks that exist for a reason.</p>
+    <p>In May 2022, two cryptocurrencies called TerraUSD and LUNA essentially ceased to exist within about seven days. At their peak, they were worth something in the range of $40 billion combined. By the end of that week, nearly all of it was gone.</p>
+    <p>Short explanation of how: TerraUSD was a "stablecoin", a token designed to always be worth exactly $1. But unlike most stablecoins, it wasn't backed by actual dollars in a bank. It was backed by an algorithm and by another token (LUNA) that was supposed to absorb volatility. When people started selling TerraUSD in large volumes, the algorithm tried to defend the peg by creating more LUNA. That flooded the market, crashed LUNA's price and made the whole system collapse faster. It's a feedback loop that's obvious in hindsight. Do Kwon, the founder, was later charged with fraud and sentenced in December 2025.</p>
+    <p>What I keep thinking about is the 20% annual return that the Terra ecosystem's savings product, Anchor Protocol, was offering. Twenty percent. Guaranteed. In a world where most savings accounts pay under 1%.</p>
+    <p>That should've been a red flag visible from space. Returns that high, sustained at scale, don't come from genuine economic activity. They come from somewhere else, usually from new investor money subsidising payments to existing investors. It's the same basic structure as every Ponzi scheme that's ever existed, just wrapped in blockchain terminology.</p>
+    <p>The investors who lost money weren't all naive. Many were sophisticated. But they were operating in a space where the normal guardrails, the things that make a bank or investment firm explain risks clearly and check whether you can afford to lose, simply didn't exist. That's the real gap. Not the technology. The absence of basic consumer protection.</p>
   <div class="article-sources"><a href="https://www.justice.gov/usao-sdny/pr/crypto-enabled-fraudster-sentenced-orchestrating-40-billion-fraud" target="_blank" rel="noopener">DOJ, Do Kwon Sentencing ↗</a></div>
   </div>
 </div>
@@ -666,16 +668,16 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#1a1a1a;">By Joseph Brian Hwang</span>
             <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Courier New',monospace;color:#888;">3 min read</span>
           </div>
-          <h3 style="font-size:18px;">What actually changes when you use AI in a live AML workflow</h3>
+          <h3 style="font-size:18px;">I started using AI in my investigations. Here's what actually changed.</h3>
         </div>
         <button class="read-toggle btn btn-outline" style="flex-shrink:0;padding:7px 16px;font-size:11px;align-self:center;">Read →</button>
       </div>
       <div class="article-body">
-        <p>Everyone in compliance is talking about AI. Most of the conversation is either hype or fear. Here's something more useful: what it actually looks like to integrate generative AI into a live AML investigation workflow, with real human oversight.</p>
-        <p>I started using AI tools in my investigations at Newton. Not to replace judgment, to accelerate the parts of investigation work that are time-intensive but not judgment-intensive. Drafting STR narratives from structured case notes. Summarising long transaction histories into a concise chronology. Cross-referencing regulatory guidance against filing thresholds. Tasks that used to take 20-30 minutes per case now take five.</p>
-        <p>What it cannot do is what matters most. It can't evaluate whether a behaviour pattern constitutes reasonable grounds to suspect money laundering. It can't weigh the credibility of a customer explanation against the red flags in their transaction history. It can't decide whether to escalate to law enforcement or close with enhanced monitoring. Those calls require a trained investigator who understands the regulatory obligations, the evidentiary standards and the institutional context.</p>
-        <p>The right mental model isn't "AI as an analyst." It's "AI as a very fast research assistant who never gets tired." The oversight stays human. The judgment stays human. The regulatory responsibility definitely stays human.</p>
-        <p>What AI has changed for me is capacity. When it handles the structured, repeatable parts of investigation workflow, investigators can go deeper on the cases that actually need depth. That's a real improvement in compliance quality, not just efficiency.</p>
+        <p>There's a lot of noise right now about AI replacing analysts. I've been using generative AI tools in my AML work for a while now and that's not what's happening, at least not in my experience.</p>
+        <p>What it's actually changed is the parts of investigation work that are time-consuming but don't really require deep judgment. Writing up case notes into a formal STR narrative (that's a Suspicious Transaction Report, a document you file with the financial regulator when you think a transaction might be linked to money laundering). Turning a messy transaction history into a clear summary. Cross-checking regulatory guidance to confirm the right filing threshold. Those tasks used to eat up 20-30 minutes per case. Now they take five.</p>
+        <p>What it doesn't replace: deciding whether something is actually suspicious. Reading a customer's explanation against the red flags in their account history. Knowing when to escalate to law enforcement versus when to close a case with a note in the file. That judgment, the actual compliance decision, is entirely human. And it needs to stay that way.</p>
+        <p>The right way to think about it isn't "AI analyst." It's more like having a very organized assistant who handles the paperwork while you do the thinking. The writing gets done faster. The summaries are cleaner. And because the administrative stuff takes less time, I can go deeper on the cases that actually need depth.</p>
+        <p>That's a real improvement. Not a replacement. The judgment at the centre of this work stays with people and I think that's exactly how it should be.</p>
       </div>
     </div>
 
@@ -796,13 +798,12 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
   </section>
 
 
-</main>
 
 <section id="connect-resume">
   <p class="section-label">Connect &amp; Resume</p>
   <div class="cr-grid">
     <div class="resume-card" style="background:#0d1b2e;border-color:#2a5eaa;color:#f0ede6;">
-      <div class="cr-label" style="color:#b5810a;">Let's Connect</div>
+      <div class="cr-label" style="color:#C8942A;">Let's Connect</div>
       <h3 style="color:#f0ede6;">Open to meaningful conversations.</h3>
       <p style="font-size:14px;color:#bdd0e8;line-height:1.75;margin:10px 0 18px;">Whether you're a recruiter, a hiring manager, building something in fintech or crypto or just someone interested in financial crime and digital assets, I'm always open to connecting.</p>
       <div class="hero-cta">
@@ -822,6 +823,8 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
   </div>
 </section>
 
+</main>
+
 <footer>
   <span class="footer-left">© 2026 Joseph Brian Hwang</span>
   <div class="footer-links">
@@ -829,7 +832,7 @@ body.dark #dark-toggle { background:#f0ede6; color:#1a1a1a; border-color:#ccc; }
     <a href="mailto:brian.hwang312@gmail.com">Email</a>
     <a href="#">Resume</a>
   </div>
-  <span class="footer-right">Crypto-native. Compliance-first.</span>
+  <span class="footer-right">Crypto-native. Full financial crime stack.</span>
 </footer>
 
 <script>
@@ -877,8 +880,6 @@ document.querySelectorAll('#expertise .proj-card').forEach(function(card){
   var nextBtn=document.getElementById('carousel-next');
   if(!cards.length) return;
   var idx=0;
-
-  // Build sidebar + layout wrapper
   var carouselEl=document.getElementById('perspectives-carousel');
   var carouselNav=document.querySelector('.carousel-nav');
   var layout=document.createElement('div');
@@ -892,8 +893,6 @@ document.querySelectorAll('#expertise .proj-card').forEach(function(card){
   layout.appendChild(main);
   main.appendChild(carouselEl);
   if(carouselNav) main.appendChild(carouselNav);
-
-  // Populate sidebar items
   var sidebarItems=[];
   cards.forEach(function(card,i){
     var h3=card.querySelector('h3');
@@ -905,42 +904,47 @@ document.querySelectorAll('#expertise .proj-card').forEach(function(card){
     sidebar.appendChild(item);
     sidebarItems.push(item);
   });
-
+  var chipsDiv=document.createElement('div');
+  chipsDiv.className='carousel-chips';
+  var chipItems=[];
+  cards.forEach(function(card,i){
+    var h3=card.querySelector('h3');
+    var title=h3?h3.textContent:'Article '+(i+1);
+    var short=title.length>28?title.substring(0,26)+'\u2026':title;
+    var chip=document.createElement('button');
+    chip.className='carousel-chip';
+    chip.textContent=short;
+    chip.addEventListener('click',function(){show(i);});
+    chipsDiv.appendChild(chip);
+    chipItems.push(chip);
+  });
+  main.appendChild(chipsDiv);
   function resetCard(card){
     var body=card.querySelector('.article-body');
-    if(body&&body.classList.contains('open')){
-      body.classList.remove('open');
-      var t=card.querySelector('.read-toggle');
-      if(t) t.textContent='Read →';
-    }
+    if(body&&body.classList.contains('open')){body.classList.remove('open');var t=card.querySelector('.read-toggle');if(t) t.textContent='Read \u2192';}
   }
-
   function show(n){
     resetCard(cards[idx]);
     cards[idx].classList.remove('carousel-active');
     sidebarItems[idx].classList.remove('sidebar-active');
+    chipItems[idx].classList.remove('chip-active');
     idx=Math.max(0,Math.min(n,cards.length-1));
     cards[idx].classList.add('carousel-active');
     sidebarItems[idx].classList.add('sidebar-active');
+    chipItems[idx].classList.add('chip-active');
     var body=cards[idx].querySelector('.article-body');
     if(body) body.classList.add('open');
     sidebarItems[idx].scrollIntoView({block:'nearest',behavior:'smooth'});
+    chipItems[idx].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
     if(counter) counter.textContent=(idx+1)+' / '+cards.length;
     if(prevBtn){prevBtn.style.opacity=idx===0?'0.3':'1';prevBtn.style.pointerEvents=idx===0?'none':'auto';}
     if(nextBtn){nextBtn.style.opacity=idx===cards.length-1?'0.3':'1';nextBtn.style.pointerEvents=idx===cards.length-1?'none':'auto';}
   }
-
   if(prevBtn) prevBtn.addEventListener('click',function(){show(idx-1);});
   if(nextBtn) nextBtn.addEventListener('click',function(){show(idx+1);});
-
-  // swipe
   var tsx=0;
   carouselEl.addEventListener('touchstart',function(e){tsx=e.touches[0].clientX;},{passive:true});
-  carouselEl.addEventListener('touchend',function(e){
-    var diff=tsx-e.changedTouches[0].clientX;
-    if(Math.abs(diff)>50){diff>0?show(idx+1):show(idx-1);}
-  },{passive:true});
-
+  carouselEl.addEventListener('touchend',function(e){var diff=tsx-e.changedTouches[0].clientX;if(Math.abs(diff)>50){diff>0?show(idx+1):show(idx-1);}},{passive:true});
   show(0);
 })();
 
